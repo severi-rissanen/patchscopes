@@ -53,20 +53,27 @@ def parse_args():
         "--model", "-m",
         type=str,
         default="meta-llama/Meta-Llama-3-8B",
-        help="Model name or path"
+        help="Base model name or path (for vanilla and patchscope methods)"
+    )
+
+    parser.add_argument(
+        "--cot-model",
+        type=str,
+        default="meta-llama/Meta-Llama-3-8B", # this should be the Instruct model really, but for memory reasons keeping like this
+        help="Instruct model for Chain-of-Thought prompting"
     )
 
     parser.add_argument(
         "--layer-range",
         type=str,
-        default="0-9",
+        default="0-20",
         help="Layer range to test (e.g., '0-9' or '0,3,6,9')"
     )
 
     parser.add_argument(
         "--max-new-tokens",
         type=int,
-        default=20,
+        default=40,
         help="Maximum tokens to generate"
     )
 
@@ -107,13 +114,13 @@ def main():
     print(f"Target final answer: {example['hop2_answer']}")
     print()
 
-    # Load model
+    # Load base model
     device = args.device
     dtype = torch.float16 if device == "cuda" else torch.float32
 
-    print(f"Loading model: {args.model}")
+    print(f"Loading base model: {args.model}")
     model = load_model(args.model, device=device, dtype=dtype)
-    print(f"Model loaded! ({model.cfg.n_layers} layers)")
+    print(f"Base model loaded! ({model.cfg.n_layers} layers)")
     print()
 
     # Parse layers
@@ -137,7 +144,7 @@ def main():
     print(f"Using placeholder: '{placeholder}'")
     print()
 
-    # Method 1: Vanilla
+    # Method 1: Vanilla (using base model)
     print("=" * 80)
     print("Method 1: Vanilla (No Chain-of-Thought)")
     print("=" * 80)
@@ -152,36 +159,32 @@ def main():
     print(f"Correct: {'✓' if vanilla_correct else '✗'}")
     print()
 
-    # Method 2: CoT
+    # Method 2: Patchscope (using base model)
     print("=" * 80)
-    print("Method 2: Chain-of-Thought")
-    print("=" * 80)
-    cot_prompt = build_cot_multihop_prompt(example['combined_question'])
-    print(f"Prompt: {cot_prompt}")
-
-    cot_tokens, _ = vanilla_generate(model, cot_prompt, max_new_tokens=args.max_new_tokens)
-    cot_text = "".join(cot_tokens)
-    cot_correct = answer_appears_in_generation(cot_tokens, example['hop2_answer'])
-
-    print(f"Generated: {cot_text}")
-    print(f"Correct: {'✓' if cot_correct else '✗'}")
-    print()
-
-    # Method 3: Patchscope
-    print("=" * 80)
-    print("Method 3: Patchscope (Layer Sweep)")
+    print("Method 2: Patchscope (Layer Sweep)")
     print("=" * 80)
 
     hop1_prompt = build_hop1_prompt(example['hop1_prompt'], placeholder)
     hop2_prompt = build_hop2_prompt(example['hop2_prompt_prefix'], placeholder)
 
     print(f"Hop 1 prompt: {hop1_prompt}")
+    hop1_tokens = model.to_tokens(hop1_prompt, prepend_bos=True)[0]
+    token_texts = [model.to_string(hop1_tokens[:i+1])[-len(model.to_string(hop1_tokens[i])):] for i in range(len(hop1_tokens))]
+    print("Hop 1 prompt, tokenized:")
+    for idx, (tok_id, tok_text) in enumerate(zip(hop1_tokens, token_texts)):
+        print(f"  Token {idx}: id={tok_id}, text='{tok_text}'")
     print(f"Hop 2 prompt: {hop2_prompt}")
+    hop2_tokens = model.to_tokens(hop2_prompt, prepend_bos=True)[0]
+    hop2_token_texts = [model.to_string(hop2_tokens[:i+1])[-len(model.to_string(hop2_tokens[i])):] for i in range(len(hop2_tokens))]
+    print("Hop 2 prompt, tokenized:")
+    for idx, (tok_id, tok_text) in enumerate(zip(hop2_tokens, hop2_token_texts)):
+        print(f"  Token {idx}: id={tok_id}, text='{tok_text}'")
     print()
 
-    # Find positions
-    hop1_position = find_substring_token_position(model, hop1_prompt, "->")
+    # Find positions - extract from the last token of the hop1 query phrase
+    hop1_position = find_substring_token_position(model, hop1_prompt, example['hop1_prompt'], return_last=True)
     if hop1_position is None:
+        print(f"Warning: Could not find '{example['hop1_prompt']}' in hop1_prompt, using last token")
         hop1_position = len(model.to_tokens(hop1_prompt, prepend_bos=True)[0]) - 1
 
     hop2_placeholder_pos = find_token_position(model, hop2_prompt, placeholder)
@@ -206,6 +209,7 @@ def main():
                 source_vec=bridge_vec,
                 max_new_tokens=args.max_new_tokens
             )
+            # patch_tokens, _ = generate_with_patch(model, hop2_prompt, target_position=hop2_placeholder_pos, source_vec=bridge_vec, max_new_tokens=args.max_new_tokens)
 
         patch_text = "".join(patch_tokens)
         patch_correct = answer_appears_in_generation(patch_tokens, example['hop2_answer'])
@@ -216,16 +220,47 @@ def main():
 
         patchscope_results.append((layer, patch_correct))
 
+    # Method 3: CoT (using instruct model)
+    # Free base model and load instruct model if different
+    use_instruct_format = args.cot_model != args.model
+    if use_instruct_format:
+        print("=" * 80)
+        print("Freeing base model from memory...")
+        del model
+        if device == "cuda":
+            torch.cuda.empty_cache()
+        print(f"Loading instruct model for CoT: {args.cot_model}")
+        cot_model = load_model(args.cot_model, device=device, dtype=dtype)
+        print(f"Instruct model loaded! ({cot_model.cfg.n_layers} layers)")
+        print()
+    else:
+        print("Using same model for CoT")
+        cot_model = model
+        print()
+
+    print("=" * 80)
+    print("Method 3: Chain-of-Thought (Instruct Model)")
+    print("=" * 80)
+    cot_prompt = build_cot_multihop_prompt(example['combined_question'], use_instruct_format=use_instruct_format)
+    print(f"Prompt: {cot_prompt[:200]}..." if len(cot_prompt) > 200 else f"Prompt: {cot_prompt}")
+
+    cot_tokens, _ = vanilla_generate(cot_model, cot_prompt, max_new_tokens=args.max_new_tokens)
+    cot_text = "".join(cot_tokens)
+    cot_correct = answer_appears_in_generation(cot_tokens, example['hop2_answer'])
+
+    print(f"Generated: {cot_text}")
+    print(f"Correct: {'✓' if cot_correct else '✗'}")
+    print()
+
     # Summary
     print("=" * 80)
     print("Summary")
     print("=" * 80)
     print(f"Vanilla: {'✓' if vanilla_correct else '✗'}")
-    print(f"CoT: {'✓' if cot_correct else '✗'}")
-    print()
-    print("Patchscope by layer:")
+    print(f"Patchscope by layer:")
     for layer, correct in patchscope_results:
         print(f"  Layer {layer}: {'✓' if correct else '✗'}")
+    print(f"CoT: {'✓' if cot_correct else '✗'}")
     print()
 
     # Count successes

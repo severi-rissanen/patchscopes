@@ -27,9 +27,9 @@ def find_token_position(model, text, target_token_str):
     return None
 
 
-def find_substring_token_position(model, text, substring):
+def find_substring_token_position(model, text, substring, return_last=True):
     """
-    Find the position of the last token that represents a substring.
+    Find the token position corresponding to a substring in the text.
 
     Useful when the substring might be split across multiple tokens.
 
@@ -37,21 +37,45 @@ def find_substring_token_position(model, text, substring):
         model: HookedTransformer model
         text: Input text string
         substring: Substring to find
+        return_last: If True, return position of last token of substring.
+                     If False, return position of first token.
 
     Returns:
-        Position index of the last token of the substring
+        Position index of the first or last token of the substring, or None if not found
+        (position accounts for prepend_bos=True, consistent with model usage)
     """
     tokens = model.to_tokens(text, prepend_bos=True)
-
-    # Decode each prefix to find where the substring ends
-    for i in range(1, tokens.shape[1]):
-        decoded = model.to_string(tokens[0, :i+1])
-        if substring in decoded:
-            # Check if this is the last token of the substring
-            if i == tokens.shape[1] - 1 or substring not in model.to_string(tokens[0, :i+2]).replace(model.to_string(tokens[0, :i+1]), ""):
-                return i
-
-    return None
+    
+    # Find character position of substring in text
+    char_start = text.find(substring)
+    if char_start == -1:
+        return None
+    char_end = char_start + len(substring)
+    
+    # Map character positions to token positions by decoding prefixes
+    # Skip BOS token (index 0) when decoding to match original text character positions
+    first_token_pos = None
+    last_token_pos = None
+    
+    for i in range(1, tokens.shape[1] + 1):
+        # Decode starting from token 1 (skip BOS) to match original text
+        decoded = model.to_string(tokens[0, 1:i+1])
+        decoded_len = len(decoded)
+        
+        # Find first token that covers the start of substring
+        # Position is i (not i-1) because we account for BOS at position 0
+        if first_token_pos is None and decoded_len > char_start:
+            first_token_pos = i
+        
+        # Find last token that covers the end of substring
+        if decoded_len >= char_end:
+            last_token_pos = i
+            break
+    
+    if return_last:
+        return last_token_pos
+    else:
+        return first_token_pos
 
 
 def verify_single_token(model, token_str):

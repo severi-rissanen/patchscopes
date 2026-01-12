@@ -21,7 +21,7 @@ import numpy as np
 
 from patchscopes.model import load_model
 from patchscopes.data import load_multihop_examples
-from patchscopes.experiments.multi_hop import run_multihop_experiment
+from patchscopes.experiments.multi_hop import run_vanilla_and_patchscope, run_cot_phase
 
 
 def parse_args():
@@ -40,27 +40,34 @@ def parse_args():
         '--model', '-m',
         type=str,
         default='meta-llama/Meta-Llama-3-8B',
-        help='Model name or path'
+        help='Base model name or path (for vanilla and patchscope methods)'
+    )
+
+    parser.add_argument(
+        '--cot-model',
+        type=str,
+        default='meta-llama/Meta-Llama-3-8B-Instruct',
+        help='Instruct model for Chain-of-Thought prompting'
     )
 
     parser.add_argument(
         '--layers',
         type=str,
-        default='0,1,2,3,4,5,6,7,8,9',
+        default='0,1,2,3,4,5,6,7,8,9,10,11',
         help='Comma-separated layer indices'
     )
 
     parser.add_argument(
         '--max-new-tokens',
         type=int,
-        default=20,
+        default=120,
         help='Maximum tokens to generate'
     )
 
     parser.add_argument(
         '--filter-solvable',
         action='store_true',
-        default=True,
+        default=False,
         help='Filter to only examples where both hops are individually solvable'
     )
 
@@ -231,13 +238,13 @@ def main():
         print(f"Limited to {len(examples)} examples")
     print()
 
-    # Load model
+    # Load base model
     device = args.device
     dtype = torch.float16 if device == "cuda" else torch.float32
 
-    print(f"Loading model: {args.model}")
+    print(f"Loading base model: {args.model}")
     model = load_model(args.model, device=device, dtype=dtype)
-    print(f"Model loaded! ({model.cfg.n_layers} layers)")
+    print(f"Base model loaded! ({model.cfg.n_layers} layers)")
     print()
 
     # Parse layers
@@ -245,20 +252,55 @@ def main():
     print(f"Testing layers: {layers}")
     print()
 
-    # Run experiment
+    # Run experiment in two phases to manage memory
     filter_solvable = args.filter_solvable and not args.no_filter
 
     print("=" * 80)
-    print("Running Experiment")
+    print("Phase 1: Vanilla + Patchscope (Base Model)")
     print("=" * 80)
     print()
 
-    results = run_multihop_experiment(
+    # Phase 1: Run vanilla and patchscope with base model
+    results, filtered_examples = run_vanilla_and_patchscope(
         model,
         examples,
         layers,
         max_new_tokens=args.max_new_tokens,
         filter_solvable=filter_solvable
+    )
+
+    # Check if we need a separate CoT model
+    use_instruct_format = args.cot_model != args.model
+
+    print()
+    print("=" * 80)
+    print("Phase 2: Chain-of-Thought (Instruct Model)")
+    print("=" * 80)
+    print()
+
+    if use_instruct_format:
+        # Free base model from memory
+        print("Freeing base model from memory...")
+        del model
+        if device == "cuda":
+            torch.cuda.empty_cache()
+        
+        # Load instruct model for CoT
+        print(f"Loading instruct model for CoT: {args.cot_model}")
+        cot_model = load_model(args.cot_model, device=device, dtype=dtype)
+        print(f"Instruct model loaded! ({cot_model.cfg.n_layers} layers)")
+        print()
+    else:
+        print("Using same model for CoT")
+        cot_model = model
+
+    # Phase 2: Run CoT with instruct model
+    results = run_cot_phase(
+        cot_model,
+        results,
+        filtered_examples,
+        max_new_tokens=args.max_new_tokens,
+        use_instruct_format=use_instruct_format
     )
 
     # Print summary

@@ -1,0 +1,1428 @@
+{
+  "layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "rouge_l_scores": [
+    0.24063048140395027,
+    0.3127759933818892,
+    0.3389268846900695,
+    0.344356879920307,
+    0.3474164291086488,
+    0.35934690520290197,
+    0.34469271121592265,
+    0.3315697182418544,
+    0.32963306017155797,
+    0.3313418633609103
+  ],
+  "per_entity_scores": [
+    {
+      "entity": "Diana, Princess of Wales",
+      "reference": "Member of the British royal family",
+      "scores_by_layer": {
+        "0": 0.125,
+        "1": 0.1,
+        "2": 0.125,
+        "3": 0.125,
+        "4": 0.09090909090909091,
+        "5": 0.08695652173913045,
+        "6": 0.08695652173913045,
+        "7": 0.08695652173913045,
+        "8": 0.08695652173913045,
+        "9": 0.08695652173913045
+      },
+      "generations_by_layer": {
+        "0": "Country in the United Kingdom, 2016: Year, 2017: Year, 201",
+        "1": "Country in the United Kingdom, United Kingdom: Country in Europe, Europe: Continent, United States:",
+        "2": "Country in the United Kingdom, 2016: Year, 2017: Year, 201",
+        "3": "Country in the United Kingdom, 2016: Year, 2017: Year, 201",
+        "4": "Former consort of Charles, Prince of Wales, and mother of Prince William, Duke of Cambridge, and",
+        "5": "Former wife of Prince Charles, Princess of Wales, and mother of Prince William and Prince Harry, and",
+        "6": "Former wife of Prince Charles, Princess of Wales, and mother of Prince William and Prince Harry, Prince",
+        "7": "Former wife of Prince Charles, Princess of Wales, and mother of Prince William and Prince Harry, Prince",
+        "8": "Former wife of Prince Charles, Princess of Wales, and mother of Prince William and Prince Harry, and",
+        "9": "Former wife of Prince Charles, Princess of Wales, and mother of Prince William and Prince Harry, and"
+      }
+    },
+    {
+      "entity": "Albert Einstein",
+      "reference": "German-born theoretical physicist who developed the theory of relativity",
+      "scores_by_layer": {
+        "0": 0.35714285714285715,
+        "1": 0.35714285714285715,
+        "2": 0.35714285714285715,
+        "3": 0.35714285714285715,
+        "4": 0.35714285714285715,
+        "5": 0.35714285714285715,
+        "6": 0.42857142857142855,
+        "7": 0.35714285714285715,
+        "8": 0.2857142857142857,
+        "9": 0.42857142857142855
+      },
+      "generations_by_layer": {
+        "0": "German-born theoretical physicist, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between",
+        "1": "German-born theoretical physicist, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between",
+        "2": "German-born theoretical physicist, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between",
+        "3": "German-born theoretical physicist, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between",
+        "4": "German-born theoretical physicist, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between",
+        "5": "German-born theoretical physicist, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between",
+        "6": "German-born theoretical physicist, and more!\nThe following is a list of the most popular articles in the",
+        "7": "German-born theoretical physicist, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between",
+        "8": "German theoretical physicist, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between forces",
+        "9": "German-born theoretical physicist, and more!\nThe following is a list of the most popular articles in the"
+      }
+    },
+    {
+      "entity": "Mount Everest",
+      "reference": "Earth's highest mountain above sea level",
+      "scores_by_layer": {
+        "0": 0.25,
+        "1": 0.25,
+        "2": 0.25,
+        "3": 0.125,
+        "4": 0.09090909090909091,
+        "5": 0.25,
+        "6": 0.25,
+        "7": 0.125,
+        "8": 0.25,
+        "9": 0.25
+      },
+      "generations_by_layer": {
+        "0": "Highest mountain on Earth, 2016: Year, 2017: Year, 2018",
+        "1": "Highest mountain on Earth, 2016: Year, 2017: Year, 2018",
+        "2": "Highest mountain on Earth, 2016: Year, 2017: Year, 2018",
+        "3": "Mountain in the Himalayas, 2016: Year, 2017: Year, 201",
+        "4": "Mountain in the Himalayas, China: Country in East Asia, North Korea: Country in East Asia",
+        "5": "Highest mountain on Earth, 2016: Year, 2017: Year, 2018",
+        "6": "Highest mountain on Earth, 2016: Year, 2017: Year, 2018",
+        "7": "Mountain in the Himalayas, 2016: Year, 2017: Year, 201",
+        "8": "Highest mountain on Earth, 2016: Year, 2017: Year, 2018",
+        "9": "Highest mountain on Earth, 2016: Year, 2017: Year, 2018"
+      }
+    },
+    {
+      "entity": "World War II",
+      "reference": "Global war that lasted from 1939 to 1945",
+      "scores_by_layer": {
+        "0": 0.1,
+        "1": 0.125,
+        "2": 0.125,
+        "3": 0.125,
+        "4": 0.125,
+        "5": 0.125,
+        "6": 0.125,
+        "7": 0.125,
+        "8": 0.125,
+        "9": 0.125
+      },
+      "generations_by_layer": {
+        "0": "Second of the two World Wars, 2016: Year of the Monkey, 2017:",
+        "1": "Second World War, 2016: Year, 2017: Year, 2018:",
+        "2": "World War II, 2016: Year, 2017: Year, 2018:",
+        "3": "World War II, 2016: Year, 2017: Year, 2018:",
+        "4": "World War II, 2016: Year, 2017: Year, 2018:",
+        "5": "World War II, 2016: Year, 2017: Year, 2018:",
+        "6": "World War II, 2016: Year, 2017: Year, 2018:",
+        "7": "World War II, 2016: Year, 2017: Year, 2018:",
+        "8": "World War II, 2016: Year, 2017: Year, 2018:",
+        "9": "World War II, 2016: Year, 2017: Year, 2018:"
+      }
+    },
+    {
+      "entity": "Leonardo da Vinci",
+      "reference": "Italian polymath of the High Renaissance",
+      "scores_by_layer": {
+        "0": 0.2222222222222222,
+        "1": 0.26666666666666666,
+        "2": 0.37499999999999994,
+        "3": 0.37499999999999994,
+        "4": 0.3529411764705882,
+        "5": 0.3529411764705882,
+        "6": 0.37499999999999994,
+        "7": 0.3529411764705882,
+        "8": 0.3529411764705882,
+        "9": 0.3529411764705882
+      },
+      "generations_by_layer": {
+        "0": "Italian polymath, Leonardo da Vinci: Italian polymath, Leonardo da Vinci: Italian polymath,",
+        "1": "Italian polymath, Leonardo da Vinci, 1452-1519, 2019: Year",
+        "2": "Italian polymath, Leonardo da Vinci, 1452-1519, The Last Supper:",
+        "3": "Italian polymath, Leonardo da Vinci, 1452-1519, The Last Supper:",
+        "4": "Italian polymath, Leonardo da Vinci, The Last Supper: 1495-1498 mural",
+        "5": "Italian polymath, Leonardo da Vinci, The Last Supper: 1495-1498 mural",
+        "6": "Italian polymath, Leonardo da Vinci, 1452-1519, The Last Supper:",
+        "7": "Italian polymath, Leonardo da Vinci: Italian polymath, The Last Supper: 1495",
+        "8": "Italian polymath, Leonardo da Vinci: Italian polymath, The Last Supper: 1495",
+        "9": "Italian polymath, Leonardo da Vinci: Italian polymath, The Last Supper: 1495"
+      }
+    },
+    {
+      "entity": "Amazon rainforest",
+      "reference": "Moist broadleaf tropical rainforest in South America",
+      "scores_by_layer": {
+        "0": 0.08,
+        "1": 0.0,
+        "2": 0.08,
+        "3": 0.08,
+        "4": 0.25,
+        "5": 0.4545454545454545,
+        "6": 0.25,
+        "7": 0.4545454545454545,
+        "8": 0.4545454545454545,
+        "9": 0.4545454545454545
+      },
+      "generations_by_layer": {
+        "0": "an area of land with a high density of trees, The United States of America: a North American",
+        "1": "A large area of land covered with trees and other growth, and the animals and plants that grow there",
+        "2": "A large area of land covered with trees, and many other words in English.\nThe English language is",
+        "3": "Large area of land covered with trees, and many other words in English.\nThe English language is spoken",
+        "4": "Large area of dense forest in South America, Amazon rainforest: Large area of dense forest in South",
+        "5": "Large area of tropical rainforest in South America, Amazon rainforest: Large area of tropical rainforest",
+        "6": "Large area of dense forest in South America, Amazon rainforest: Large area of dense forest in South",
+        "7": "Large area of tropical rainforest in South America, Amazon rainforest: Large area of tropical rainforest",
+        "8": "Large area of tropical rainforest in South America, Amazon rainforest: Large area of tropical rainforest",
+        "9": "Large area of tropical rainforest in South America, Amazon rainforest: Large area of tropical rainforest"
+      }
+    },
+    {
+      "entity": "Barack Obama",
+      "reference": "44th president of the United States",
+      "scores_by_layer": {
+        "0": 0.6666666666666666,
+        "1": 0.6666666666666666,
+        "2": 0.8,
+        "3": 0.7499999999999999,
+        "4": 0.6,
+        "5": 0.7499999999999999,
+        "6": 0.6,
+        "7": 0.6,
+        "8": 0.6,
+        "9": 0.6
+      },
+      "generations_by_layer": {
+        "0": "44th President of the United States, 2016: Year in the Gregorian calendar,",
+        "1": "44th President of the United States, 2016: Year in the Gregorian calendar,",
+        "2": "44th President of the United States, 2009-2017, 2017-",
+        "3": "44th President of the United States, 2009-2017, and 2017",
+        "4": "44th President of the United States, and more!\nSyria: Country in the Middle East",
+        "5": "44th President of the United States, 2009-2017, and 2017",
+        "6": "44th President of the United States, and more!\nSyria: Country in the Middle East",
+        "7": "44th President of the United States, and more!\nSyria: Country in the Middle East",
+        "8": "44th President of the United States, and more!\nSyria: Country in the Middle East",
+        "9": "44th President of the United States, and more!\nSyria: Country in the Middle East"
+      }
+    },
+    {
+      "entity": "Shakespeare",
+      "reference": "English playwright and poet",
+      "scores_by_layer": {
+        "0": 0.39999999999999997,
+        "1": 0.3333333333333333,
+        "2": 0.39999999999999997,
+        "3": 0.46153846153846156,
+        "4": 0.46153846153846156,
+        "5": 0.46153846153846156,
+        "6": 0.46153846153846156,
+        "7": 0.46153846153846156,
+        "8": 0.46153846153846156,
+        "9": 0.46153846153846156
+      },
+      "generations_by_layer": {
+        "0": "English poet, playwright, and actor, 2016: Year in the Gregorian calendar,",
+        "1": "English poet, playwright, and actor, 2019: Year of the Pig according to Chinese z",
+        "2": "English poet, playwright, and actor, 2019: Year in the Gregorian calendar,",
+        "3": "English poet, playwright, and actor, 2016: Year, 2017: Year,",
+        "4": "English poet, playwright, and actor, 2016: Year, 2017: Year,",
+        "5": "English poet, playwright, and actor, 2016: Year, 2017: Year,",
+        "6": "English poet, playwright, and actor, 2016: Year, 2017: Year,",
+        "7": "English poet, playwright, and actor, 2016: Year, 2017: Year,",
+        "8": "English poet, playwright, and actor, 2016: Year, 2017: Year,",
+        "9": "English poet, playwright, and actor, 2016: Year, 2017: Year,"
+      }
+    },
+    {
+      "entity": "The Great Wall of China",
+      "reference": "Series of fortifications in northern China",
+      "scores_by_layer": {
+        "0": 0.13333333333333333,
+        "1": 0.13333333333333333,
+        "2": 0.09523809523809522,
+        "3": 0.09523809523809522,
+        "4": 0.09523809523809522,
+        "5": 0.09523809523809522,
+        "6": 0.09090909090909091,
+        "7": 0.09523809523809522,
+        "8": 0.09523809523809522,
+        "9": 0.09523809523809522
+      },
+      "generations_by_layer": {
+        "0": "Country in East Asia, 2016: Year, 2017: Year, 2018",
+        "1": "Country in East Asia, 2016: Year, 2017: Year, 2018",
+        "2": "Country in East Asia, United States: Country in North America, United Kingdom: Country in Europe,",
+        "3": "Country in East Asia, United States: Country in North America, United Kingdom: Country in Europe,",
+        "4": "Country in East Asia, United States: Country in North America, United Kingdom: Country in Europe,",
+        "5": "Country in East Asia, United States: Country in North America, United Kingdom: Country in Europe,",
+        "6": "Country in East Asia, United States: Country in North America, United States: Country in North America",
+        "7": "Country in East Asia, United States: Country in North America, United Kingdom: Country in Europe,",
+        "8": "Country in East Asia, United States: Country in North America, United Kingdom: Country in Europe,",
+        "9": "Country in East Asia, United States: Country in North America, United Kingdom: Country in Europe,"
+      }
+    },
+    {
+      "entity": "Marie Curie",
+      "reference": "Polish-French physicist and chemist who conducted pioneering research on radioactivity",
+      "scores_by_layer": {
+        "0": 0.19999999999999998,
+        "1": 0.2857142857142857,
+        "2": 0.32,
+        "3": 0.32,
+        "4": 0.2727272727272727,
+        "5": 0.4,
+        "6": 0.4,
+        "7": 0.07692307692307691,
+        "8": 0.07407407407407407,
+        "9": 0.08
+      },
+      "generations_by_layer": {
+        "0": "French singer, actress and model, 2016: Year, 2017: Year,",
+        "1": "French physicist and chemist, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria",
+        "2": "French physicist, Nobel laureate, and chemist, and more!\nThe following is a list of",
+        "3": "French physicist, Nobel laureate, and chemist, and more!\nThe following article is from The",
+        "4": "Irish physicist and chemist, 2016: Year in the Gregorian calendar, 2017",
+        "5": "Polish-French physicist, Nobel Prize winner, and chemist, and more!\nThe following article is",
+        "6": "Polish-French physicist, Nobel Prize winner, and chemist, and more!\nThe following are the",
+        "7": "British medical research charity, The Beatles: English rock band, The Rolling Stones: English rock band,",
+        "8": "European cancer research and care charity, The Guardian: British daily newspaper, The Independent: British daily newspaper",
+        "9": "European cancer charity, and more!\nSyria: Country in the Middle East\nSyria is a"
+      }
+    },
+    {
+      "entity": "Bitcoin",
+      "reference": "Decentralized digital cryptocurrency",
+      "scores_by_layer": {
+        "0": 0.1111111111111111,
+        "1": 0.125,
+        "2": 0.125,
+        "3": 0.1,
+        "4": 0.1,
+        "5": 0.1,
+        "6": 0.1,
+        "7": 0.1,
+        "8": 0.1,
+        "9": 0.18181818181818182
+      },
+      "generations_by_layer": {
+        "0": "Cryptocurrency, and more!\nSyria is a country in the Middle East. It is bordered by",
+        "1": "Cryptocurrency, and more!\nSyria: Country in the Middle East\nSyria is a country",
+        "2": "Cryptocurrency, and more!\nSyria: Country in the Middle East\nSyria is a country",
+        "3": "Cryptocurrency, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between forces loyal",
+        "4": "Cryptocurrency, and more!\nThe Syrian Civil War is an ongoing multi-sided armed conflict in Syria fought",
+        "5": "Cryptocurrency, and more!\nThe Syrian Civil War is an ongoing multi-sided armed conflict in Syria fought",
+        "6": "Cryptocurrency, and more!\nThe Syrian Civil War is an ongoing multi-sided armed conflict in Syria fought",
+        "7": "Cryptocurrency, and more!\nThe Syrian Civil War is an ongoing multi-sided armed conflict in Syria fought",
+        "8": "Cryptocurrency, and more!\nThe Syrian Civil War is an ongoing multi-sided armed conflict in Syria fought",
+        "9": "Cryptocurrency, Bitcoin: Cryptocurrency, Bitcoin: Cryptocurrency, Bitcoin: Cryptocurrency, Bitcoin:"
+      }
+    },
+    {
+      "entity": "Eiffel Tower",
+      "reference": "Iron lattice tower in Paris, France",
+      "scores_by_layer": {
+        "0": 0.09090909090909091,
+        "1": 0.0,
+        "2": 0.08695652173913045,
+        "3": 0.3157894736842105,
+        "4": 0.3157894736842105,
+        "5": 0.3157894736842105,
+        "6": 0.2727272727272727,
+        "7": 0.2727272727272727,
+        "8": 0.2727272727272727,
+        "9": 0.2727272727272727
+      },
+      "generations_by_layer": {
+        "0": "A tall building, structure, or object, The Tower of London: A historic castle located on the",
+        "1": "A structure that is taller than it is wide, and that is built to support a load, such",
+        "2": "A structure that is significantly tall and supported by columns, The Great Pyramid of Giza: Pyramid in",
+        "3": "Landmark in Paris, France, and more!\nSyria: Country in the Middle East\nSy",
+        "4": "Landmark in Paris, France, and more!\nSyria: Country in the Middle East\nSy",
+        "5": "Landmark in Paris, France, and more!\nSyria: Country in the Middle East\nSy",
+        "6": "Landmark in Paris, France, and more!\nThe Syrian Civil War is an ongoing armed conflict in",
+        "7": "Landmark in Paris, France, and more!\nThe Syrian Civil War is an ongoing armed conflict in",
+        "8": "Landmark in Paris, France, and more!\nThe Syrian Civil War is an ongoing armed conflict in",
+        "9": "Landmark in Paris, France, and more!\nThe Syrian Civil War is an ongoing armed conflict in"
+      }
+    },
+    {
+      "entity": "Steve Jobs",
+      "reference": "American business magnate and co-founder of Apple Inc",
+      "scores_by_layer": {
+        "0": 0.25,
+        "1": 0.25,
+        "2": 0.25,
+        "3": 0.25,
+        "4": 0.25,
+        "5": 0.25,
+        "6": 0.25,
+        "7": 0.25,
+        "8": 0.25,
+        "9": 0.25
+      },
+      "generations_by_layer": {
+        "0": "American businessman and inventor, Steve Jobs: American businessman and inventor, Apple: American multinational technology company,",
+        "1": "American entrepreneur, inventor and industrial designer, Steve Jobs: American entrepreneur, inventor and industrial designer, Apple",
+        "2": "American entrepreneur, inventor and industrial designer, Steve Jobs: American entrepreneur, inventor and industrial designer, Apple",
+        "3": "American entrepreneur, inventor and industrial designer, Steve Jobs: American entrepreneur, inventor and industrial designer, Apple",
+        "4": "American entrepreneur, inventor and industrial designer, Steve Jobs: American entrepreneur, inventor and industrial designer, Apple",
+        "5": "American entrepreneur, inventor and industrial designer, Steve Jobs: American entrepreneur, inventor and industrial designer, Apple",
+        "6": "American businessman, inventor and industrial designer, Steve Jobs: American businessman, inventor and industrial designer, Apple",
+        "7": "American businessman, inventor and industrial designer, Steve Jobs: American businessman, inventor and industrial designer, Apple",
+        "8": "American businessman, inventor and industrial designer, Steve Jobs: American businessman, inventor and industrial designer, Apple",
+        "9": "American businessman, inventor and industrial designer, Steve Jobs: American businessman, inventor and industrial designer, Apple"
+      }
+    },
+    {
+      "entity": "Nelson Mandela",
+      "reference": "South African anti-apartheid revolutionary and president",
+      "scores_by_layer": {
+        "0": 0.7058823529411764,
+        "1": 0.6,
+        "2": 0.5454545454545455,
+        "3": 0.5454545454545455,
+        "4": 0.5454545454545455,
+        "5": 0.5454545454545455,
+        "6": 0.6,
+        "7": 0.6,
+        "8": 0.6,
+        "9": 0.6666666666666665
+      },
+      "generations_by_layer": {
+        "0": "South African anti-apartheid revolutionary, politician and philanthropist, 2016: Year,",
+        "1": "South African anti-apartheid revolutionary, activist and politician, and more!\nSyria: Country in",
+        "2": "South African anti-apartheid revolutionary, activist and politician, and more!\nThe Syrian Civil War is",
+        "3": "South African anti-apartheid revolutionary, activist and politician, and more!\nThe Syrian Civil War is",
+        "4": "South African anti-apartheid revolutionary, activist and politician, and more!\nThe Syrian Civil War is",
+        "5": "South African anti-apartheid revolutionary, activist and politician, and more!\nThe Syrian Civil War is",
+        "6": "South African anti-apartheid revolutionary, politician and philanthropist, and more!\nThe following is",
+        "7": "South African anti-apartheid revolutionary, politician and philanthropist, and more!\nThe Syrian Civil",
+        "8": "South African anti-apartheid revolutionary, politician and philanthropist, and more!\nThe Syrian Civil",
+        "9": "South African anti-apartheid revolutionary, politician and philanthropist, and more...\nSyria:"
+      }
+    },
+    {
+      "entity": "The Beatles",
+      "reference": "English rock band formed in Liverpool in 1960",
+      "scores_by_layer": {
+        "0": 0.375,
+        "1": 0.26086956521739135,
+        "2": 0.375,
+        "3": 0.26086956521739135,
+        "4": 0.26086956521739135,
+        "5": 0.26086956521739135,
+        "6": 0.26086956521739135,
+        "7": 0.26086956521739135,
+        "8": 0.26086956521739135,
+        "9": 0.26086956521739135
+      },
+      "generations_by_layer": {
+        "0": "English rock band, 2016: Year, 2017: Year, 2018:",
+        "1": "English rock band, The Beatles: English rock band, The Beatles: English rock band, The Beatles",
+        "2": "English rock band, 2016: Year, 2017: Year, 2018:",
+        "3": "English rock band, The Beatles: English rock band, The Beatles: English rock band, The Beatles",
+        "4": "English rock band, The Beatles: English rock band, The Beatles: English rock band, The Beatles",
+        "5": "English rock band, The Beatles: English rock band, The Beatles: English rock band, The Beatles",
+        "6": "English rock band, The Beatles: English rock band, The Rolling Stones: English rock band, The",
+        "7": "English rock band, The Beatles: English rock band, The Rolling Stones: English rock band, The",
+        "8": "English rock band, The Beatles: English rock band, The Rolling Stones: English rock band, The",
+        "9": "English rock band, The Beatles: English rock band, The Rolling Stones: English rock band, The"
+      }
+    },
+    {
+      "entity": "Mona Lisa",
+      "reference": "Portrait painting by Leonardo da Vinci",
+      "scores_by_layer": {
+        "0": 0.0,
+        "1": 0.625,
+        "2": 0.625,
+        "3": 0.5555555555555556,
+        "4": 0.5555555555555556,
+        "5": 0.625,
+        "6": 0.5555555555555556,
+        "7": 0.5555555555555556,
+        "8": 0.5555555555555556,
+        "9": 0.5555555555555556
+      },
+      "generations_by_layer": {
+        "0": "American singer, rapper, and dancer, 2020: Year, 2021: Year,",
+        "1": "Painting by Leonardo da Vinci, 2016: Year, 2017: Year, 201",
+        "2": "Painting by Leonardo da Vinci, 2016: Year, 2017: Year, 201",
+        "3": "Painting by Leonardo da Vinci, 2016: Year in the Gregorian calendar, 2017",
+        "4": "Painting by Leonardo da Vinci, 2016: Year in the Gregorian calendar, 2015",
+        "5": "Painting by Leonardo da Vinci, 2016: Year, 2017: Year, 201",
+        "6": "Painting by Leonardo da Vinci, 2016: Year in the Gregorian calendar, 2015",
+        "7": "Painting by Leonardo da Vinci, 2016: Year in the Gregorian calendar, 2015",
+        "8": "Painting by Leonardo da Vinci, 2016: Year in the Gregorian calendar, 2015",
+        "9": "Painting by Leonardo da Vinci, 2016: Year in the Gregorian calendar, 2015"
+      }
+    },
+    {
+      "entity": "NASA",
+      "reference": "United States government agency responsible for space program",
+      "scores_by_layer": {
+        "0": 0.16666666666666666,
+        "1": 0.16666666666666666,
+        "2": 0.07692307692307691,
+        "3": 0.16666666666666666,
+        "4": 0.16666666666666666,
+        "5": 0.16666666666666666,
+        "6": 0.16666666666666666,
+        "7": 0.16666666666666666,
+        "8": 0.16666666666666666,
+        "9": 0.16666666666666666
+      },
+      "generations_by_layer": {
+        "0": "American space agency, SpaceX: American aerospace manufacturer and space transportation services company, Elon Musk: South African",
+        "1": "American space agency, SpaceX: American aerospace manufacturer and space transportation services company, Elon Musk: South African",
+        "2": "American space agency, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between forces",
+        "3": "American space agency, SpaceX: American aerospace manufacturer and space transportation services company, Elon Musk: South African",
+        "4": "American space agency, SpaceX: American aerospace manufacturer and space transportation services company, Elon Musk: South African",
+        "5": "American space agency, SpaceX: American aerospace manufacturer and space transportation services company, Elon Musk: South African",
+        "6": "American space agency, SpaceX: American aerospace manufacturer and space transportation services company, Elon Musk: South African",
+        "7": "American space agency, SpaceX: American aerospace manufacturer and space transportation services company, Elon Musk: South African",
+        "8": "American space agency, SpaceX: American aerospace manufacturer and space transportation services company, Elon Musk: South African",
+        "9": "American space agency, SpaceX: American aerospace manufacturer and space transportation services company, Elon Musk: South African"
+      }
+    },
+    {
+      "entity": "Taj Mahal",
+      "reference": "Ivory-white marble mausoleum in India",
+      "scores_by_layer": {
+        "0": 0.1,
+        "1": 0.3157894736842105,
+        "2": 0.3157894736842105,
+        "3": 0.19047619047619044,
+        "4": 0.1,
+        "5": 0.1,
+        "6": 0.0,
+        "7": 0.0,
+        "8": 0.0,
+        "9": 0.0
+      },
+      "generations_by_layer": {
+        "0": "A Hindu goddess, and more!\nSyria: Country in the Middle East\nSyria is a",
+        "1": "Mausoleum in India, The Beatles: English rock band, The Rolling Stones: English rock",
+        "2": "Mausoleum in India, The Beatles: English rock band, The Rolling Stones: English rock",
+        "3": "Mughal-era building in India, and more...\nSyria is a country in the Middle East",
+        "4": "Tomb of the Mughal emperor Shah Jahan, The Beatles: English rock band, formed in",
+        "5": "American singer-songwriter and musician, and more!\nSyria: Country in the Middle East\nSy",
+        "6": "American singer-songwriter, guitarist, and musician, and more!\nThe Syrian Civil War is an ongoing",
+        "7": "American singer-songwriter, guitarist, and musician, and more!\nThe Syrian Civil War is an ongoing",
+        "8": "American singer-songwriter, guitarist, and musician, and more!\nThe Syrian Civil War is an ongoing",
+        "9": "American singer-songwriter and musician, The Beatles: English rock band, The Rolling Stones: English rock"
+      }
+    },
+    {
+      "entity": "Muhammad Ali",
+      "reference": "American professional boxer and activist",
+      "scores_by_layer": {
+        "0": 0.0,
+        "1": 0.3478260869565218,
+        "2": 0.3478260869565218,
+        "3": 0.3478260869565218,
+        "4": 0.3478260869565218,
+        "5": 0.3478260869565218,
+        "6": 0.3478260869565218,
+        "7": 0.47619047619047616,
+        "8": 0.47619047619047616,
+        "9": 0.3478260869565218
+      },
+      "generations_by_layer": {
+        "0": "The name Ali is a boy's name of Arabic origin meaning \"high, exalted\". The name",
+        "1": "American professional boxer, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between forces",
+        "2": "American professional boxer, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between forces",
+        "3": "American professional boxer, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between forces",
+        "4": "American professional boxer, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between forces",
+        "5": "American professional boxer, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between forces",
+        "6": "American professional boxer, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between forces",
+        "7": "American professional boxer, civil rights leader, and activist, and more!\nThe following is a list of",
+        "8": "American professional boxer, comedian, and social activist, and more!\nThe following article on the history of",
+        "9": "American professional boxer, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between forces"
+      }
+    },
+    {
+      "entity": "Pyramids of Giza",
+      "reference": "Ancient Egyptian pyramid complex",
+      "scores_by_layer": {
+        "0": 0.11111111111111112,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.2,
+        "4": 0.2105263157894737,
+        "5": 0.2105263157894737,
+        "6": 0.1,
+        "7": 0.0,
+        "8": 0.0,
+        "9": 0.0
+      },
+      "generations_by_layer": {
+        "0": "Egyptian city, The Beatles: English rock band, The Beatles: English rock band, The Beatles:",
+        "1": "City in Egypt, The Beatles: English rock band, The Beatles: English rock band, The Beatles",
+        "2": "City in Egypt, The Beatles: English rock band, The Rolling Stones: English rock band, The",
+        "3": "Ancient city in Egypt, The Great Pyramid of Giza: Pyramid in Egypt, The Great Sphinx of",
+        "4": "Egyptian city, The Great Pyramid of Giza: Pyramid in Egypt, The Great Sphinx of Giza",
+        "5": "Egyptian city, The Great Pyramid of Giza: Pyramid in Egypt, The Great Sphinx of Giza",
+        "6": "City in Egypt, The Great Pyramid of Giza: Pyramid in Egypt, The Great Sphinx of G",
+        "7": "City in Egypt, 2016: Year, 2017: Year, 2018:",
+        "8": "City in Egypt, 2016: Year, 2017: Year, 2018:",
+        "9": "City in Egypt, 2016: Year, 2017: Year, 2018:"
+      }
+    },
+    {
+      "entity": "Amazon.com",
+      "reference": "American multinational technology company focusing on e-commerce",
+      "scores_by_layer": {
+        "0": 0.0,
+        "1": 0.15384615384615383,
+        "2": 0.3478260869565218,
+        "3": 0.3478260869565218,
+        "4": 0.3478260869565218,
+        "5": 0.16666666666666666,
+        "6": 0.16666666666666666,
+        "7": 0.16666666666666666,
+        "8": 0.16666666666666666,
+        "9": 0.16666666666666666
+      },
+      "generations_by_layer": {
+        "0": "Top-level domain, 2016: Year, 2017: Year, 2018:",
+        "1": "American electronic commerce company, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between",
+        "2": "American electronic commerce company, Amazon: American electronic commerce company, Apple: American multinational technology company, Google",
+        "3": "American electronic commerce company, Amazon: American electronic commerce company, Apple Inc.: American multinational technology company,",
+        "4": "American electronic commerce company, Amazon: American electronic commerce company, Apple Inc.: American multinational technology company,",
+        "5": "American electronic commerce company, and more!\nThe following list of 1000 most common English words is",
+        "6": "American electronic commerce company, and more!\nThe following list of 1000 most common English words is",
+        "7": "American electronic commerce company, and more!\nThe following list of 1000 most common English words is",
+        "8": "American electronic commerce company, and more!\nThe following list of 1000 most common English words is",
+        "9": "American electronic commerce company, and more!\nThe following list of 1000 most common English words is"
+      }
+    },
+    {
+      "entity": "Harry Potter",
+      "reference": "Fantasy novel series by J.K. Rowling",
+      "scores_by_layer": {
+        "0": 0.5,
+        "1": 0.26086956521739124,
+        "2": 0.27272727272727276,
+        "3": 0.26086956521739124,
+        "4": 0.26086956521739124,
+        "5": 0.26086956521739124,
+        "6": 0.26086956521739124,
+        "7": 0.26086956521739124,
+        "8": 0.26086956521739124,
+        "9": 0.26086956521739124
+      },
+      "generations_by_layer": {
+        "0": "Harry Potter is a series of fantasy novels written by British author J. K. Rowling, The Hunger",
+        "1": "British fantasy novel series, The Hunger Games: American dystopian novel series, The Lord of the Rings",
+        "2": "British fantasy novel series, The Beatles: British rock band, The Rolling Stones: British rock band,",
+        "3": "British fantasy novel series, The Hunger Games: American dystopian novel series, The Lord of the Rings",
+        "4": "British fantasy novel series, The Hunger Games: American dystopian novel series, The Lord of the Rings",
+        "5": "British fantasy novel series, The Hunger Games: American dystopian novel series, The Lord of the Rings",
+        "6": "British fantasy novel series, The Hunger Games: American dystopian novel series, The Lord of the Rings",
+        "7": "British fantasy novel series, The Hunger Games: American dystopian novel series, The Lord of the Rings",
+        "8": "British fantasy novel series, The Hunger Games: American dystopian novel series, The Lord of the Rings",
+        "9": "British fantasy novel series, The Hunger Games: American dystopian novel series, The Lord of the Rings"
+      }
+    },
+    {
+      "entity": "Mahatma Gandhi",
+      "reference": "Indian lawyer and anti-colonial nationalist",
+      "scores_by_layer": {
+        "0": 0.5882352941176471,
+        "1": 0.5882352941176471,
+        "2": 0.5882352941176471,
+        "3": 0.5882352941176471,
+        "4": 0.5882352941176471,
+        "5": 0.5882352941176471,
+        "6": 0.5882352941176471,
+        "7": 0.5882352941176471,
+        "8": 0.5882352941176471,
+        "9": 0.5882352941176471
+      },
+      "generations_by_layer": {
+        "0": "Indian lawyer, anti-colonial nationalist, and political ethicist, 2016: Year in",
+        "1": "Indian lawyer, anti-colonial nationalist, and political ethicist, and more!\nSyria:",
+        "2": "Indian lawyer, anti-colonial nationalist, and political ethicist, and more!\nSyria:",
+        "3": "Indian lawyer, anti-colonial nationalist, and political ethicist, and more!\nSyria:",
+        "4": "Indian lawyer, anti-colonial nationalist, and political ethicist, and more!\nSyria:",
+        "5": "Indian lawyer, anti-colonial nationalist, and political ethicist, and more!\nSyria:",
+        "6": "Indian lawyer, anti-colonial nationalist, and political ethicist, and more!\nSyria:",
+        "7": "Indian lawyer, anti-colonial nationalist, and political ethicist, and more!\nSyria:",
+        "8": "Indian lawyer, anti-colonial nationalist, and political ethicist, and more!\nSyria:",
+        "9": "Indian lawyer, anti-colonial nationalist, and political ethicist, and more!\nSyria:"
+      }
+    },
+    {
+      "entity": "The Colosseum",
+      "reference": "Ancient amphitheatre in Rome, Italy",
+      "scores_by_layer": {
+        "0": 0.0,
+        "1": 0.4210526315789473,
+        "2": 0.1,
+        "3": 0.47058823529411764,
+        "4": 0.47058823529411764,
+        "5": 0.5263157894736842,
+        "6": 0.5,
+        "7": 0.5263157894736842,
+        "8": 0.4,
+        "9": 0.5263157894736842
+      },
+      "generations_by_layer": {
+        "0": "A place for the exhibition and preservation of objects of artistic, historical, or scientific importance, and the",
+        "1": "Ancient Roman stadium in Rome, Italy, and more...\nSyria: Country in the Middle East",
+        "2": "Ancient Roman stadium, The Beatles: English rock band, The Rolling Stones: English rock band, The",
+        "3": "Amphitheatre in Rome, Italy, and more...\nSyria: Country in the Middle East",
+        "4": "Amphitheatre in Rome, Italy, and more...\nSyria: Country in the Middle East",
+        "5": "Ancient Roman amphitheatre in Rome, Italy, The Beatles: English rock band, formed in Liverpool",
+        "6": "Ancient Roman amphitheatre in Rome, Italy, and more!\nThe Syrian Civil War is an ongoing",
+        "7": "Ancient Roman amphitheatre in Rome, Italy, The Beatles: English rock band, formed in Liverpool",
+        "8": "Ancient Roman amphitheater in Rome, Italy, and more!\nThe Syrian Civil War is an ongoing",
+        "9": "Ancient Roman amphitheatre in Rome, Italy, The Beatles: English rock band, formed in Liverpool"
+      }
+    },
+    {
+      "entity": "Michael Jordan",
+      "reference": "American former professional basketball player",
+      "scores_by_layer": {
+        "0": 0.0,
+        "1": 0.4347826086956522,
+        "2": 0.4347826086956522,
+        "3": 0.4347826086956522,
+        "4": 0.4347826086956522,
+        "5": 0.4347826086956522,
+        "6": 0.4347826086956522,
+        "7": 0.4347826086956522,
+        "8": 0.4347826086956522,
+        "9": 0.4347826086956522
+      },
+      "generations_by_layer": {
+        "0": "Country in the Middle East, 2016: Year, 2017: Year, 201",
+        "1": "American former professional basketball player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria",
+        "2": "American former professional basketball player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria",
+        "3": "American former professional basketball player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria",
+        "4": "American former professional basketball player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria",
+        "5": "American former professional basketball player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria",
+        "6": "American former professional basketball player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria",
+        "7": "American former professional basketball player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria",
+        "8": "American former professional basketball player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria",
+        "9": "American former professional basketball player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria"
+      }
+    },
+    {
+      "entity": "Mozart",
+      "reference": "Prolific and influential Austrian composer",
+      "scores_by_layer": {
+        "0": 0.0,
+        "1": 0.2,
+        "2": 0.3076923076923077,
+        "3": 0.2,
+        "4": 0.3076923076923077,
+        "5": 0.2,
+        "6": 0.2,
+        "7": 0.2,
+        "8": 0.2,
+        "9": 0.2
+      },
+      "generations_by_layer": {
+        "0": "German art magazine, 2016: Year, 2017: Year, 2018:",
+        "1": "Austrian composer, The Beatles: English rock band, The Rolling Stones: English rock band, The Who",
+        "2": "Austrian composer, 2016: Year, 2017: Year, 2018: Year",
+        "3": "Austrian composer, The Beatles: English rock band, The Rolling Stones: English rock band, The Who",
+        "4": "Austrian composer, 2016: Year, 2017: Year, 2018: Year",
+        "5": "Austrian composer, The Beatles: English rock band, The Rolling Stones: English rock band, The Who",
+        "6": "Austrian composer, The Beatles: English rock band, The Rolling Stones: English rock band, The Who",
+        "7": "Austrian composer, The Beatles: English rock band, The Rolling Stones: English rock band, The Who",
+        "8": "Austrian composer, The Beatles: English rock band, The Rolling Stones: English rock band, The Who",
+        "9": "Austrian composer, The Beatles: English rock band, The Rolling Stones: English rock band, The Who"
+      }
+    },
+    {
+      "entity": "Google",
+      "reference": "American multinational technology company",
+      "scores_by_layer": {
+        "0": 0.4,
+        "1": 0.4,
+        "2": 0.4,
+        "3": 0.4,
+        "4": 0.4,
+        "5": 0.4,
+        "6": 0.4,
+        "7": 0.4,
+        "8": 0.4,
+        "9": 0.4
+      },
+      "generations_by_layer": {
+        "0": "American multinational technology company, Apple: American multinational technology company, Facebook: American online social media and social",
+        "1": "American multinational technology company, Apple: American multinational technology company, Facebook: American online social media and social",
+        "2": "American multinational technology company, Apple: American multinational technology company, Facebook: American online social media and social",
+        "3": "American multinational technology company, Apple: American multinational technology company, Facebook: American online social media and social",
+        "4": "American multinational technology company, Apple: American multinational technology company, Facebook: American online social media and social",
+        "5": "American multinational technology company, Apple: American multinational technology company, Facebook: American online social media and social",
+        "6": "American multinational technology company, Apple: American multinational technology company, Facebook: American online social media and social",
+        "7": "American multinational technology company, Apple: American multinational technology company, Facebook: American online social media and social",
+        "8": "American multinational technology company, Apple: American multinational technology company, Facebook: American online social media and social",
+        "9": "American multinational technology company, Apple: American multinational technology company, Facebook: American online social media and social"
+      }
+    },
+    {
+      "entity": "Van Gogh",
+      "reference": "Dutch post-impressionist painter",
+      "scores_by_layer": {
+        "0": 0.10526315789473685,
+        "1": 0.5333333333333333,
+        "2": 0.5333333333333333,
+        "3": 0.5333333333333333,
+        "4": 0.4444444444444445,
+        "5": 0.4444444444444445,
+        "6": 0.4444444444444445,
+        "7": 0.28571428571428575,
+        "8": 0.4444444444444445,
+        "9": 0.4
+      },
+      "generations_by_layer": {
+        "0": "French painter, The Beatles: English rock band, The Rolling Stones: English rock band, The Who",
+        "1": "Dutch post-impressionist painter and draughtsman, 2016: Year of the Monkey",
+        "2": "Dutch post-impressionist painter and draughtsman, 2016: Year in the Greg",
+        "3": "Dutch post-impressionist painter and draughtsman, 2016: Year of the Monkey",
+        "4": "Dutch post-impressionist painter, The Beatles: English rock band, The Rolling Stones: English rock",
+        "5": "Dutch post-impressionist painter, The Beatles: English rock band, The Rolling Stones: English rock",
+        "6": "Dutch post-impressionist painter, The Beatles: English rock band, The Rolling Stones: English rock",
+        "7": "Dutch painter and draughtsman, 2016: Year in the Gregorian calendar,",
+        "8": "Dutch post-impressionist painter, The Beatles: English rock band, The Rolling Stones: English rock",
+        "9": "Dutch post-impressionist painter, and more!\nThe Syrian Civil War is an ongoing armed conflict in"
+      }
+    },
+    {
+      "entity": "Statue of Liberty",
+      "reference": "Colossal neoclassical sculpture in New York Harbor",
+      "scores_by_layer": {
+        "0": 0.0,
+        "1": 0.27272727272727276,
+        "2": 0.2857142857142857,
+        "3": 0.2857142857142857,
+        "4": 0.2857142857142857,
+        "5": 0.4166666666666667,
+        "6": 0.2857142857142857,
+        "7": 0.36363636363636365,
+        "8": 0.36363636363636365,
+        "9": 0.36363636363636365
+      },
+      "generations_by_layer": {
+        "0": "The state of being free within society from oppressive restrictions imposed by authority on one's way of life,",
+        "1": "Statue in New York City, New York, United States, United States: Country in North America,",
+        "2": "Statue in New York City, New York, United States, and more!\nSyria: Country in",
+        "3": "Statue in New York City, New York, United States, and more!\nSyria: Country in",
+        "4": "Statue in New York City, New York, United States, and more!\nSyria: Country in",
+        "5": "Colossal statue on Liberty Island in New York Harbor, New York City: Largest city in the United",
+        "6": "Statue in New York City, New York, United States, and more!\nSyria: Country in",
+        "7": "Statue in New York Harbor, New York City, New York, United States, United States: Country",
+        "8": "Statue in New York Harbor, New York City, New York, United States, United States: Country",
+        "9": "Statue in New York Harbor, New York City, New York, United States, United States: Country"
+      }
+    },
+    {
+      "entity": "Martin Luther King Jr.",
+      "reference": "American Baptist minister and civil rights activist",
+      "scores_by_layer": {
+        "0": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.2105263157894737,
+        "5": 0.19047619047619047,
+        "6": 0.19047619047619047,
+        "7": 0.4,
+        "8": 0.4,
+        "9": 0.4
+      },
+      "generations_by_layer": {
+        "0": "Roman numeral for 100, 2016: Year, 2017: Year, 201",
+        "1": "Roman numeral for 1, 2016: Year, 2017: Year, 201",
+        "2": "Roman numeral for 1, 2016: Year, 2017: Year, 201",
+        "3": "The United States of America, 2016: Year, 2017: Year, 201",
+        "4": "American rapper, singer, songwriter, record producer, and actor, 2016: Year in the",
+        "5": "American rapper, singer, songwriter, record producer, and entrepreneur, and more!\nThe following is a",
+        "6": "American rapper, singer, songwriter, record producer, and entrepreneur, and more!\nThe following is a",
+        "7": "American civil rights activist, Martin Luther King Jr.: American Baptist minister and activist who became the most visible",
+        "8": "American civil rights activist, Martin Luther King Jr.: American Baptist minister and activist who became the most visible",
+        "9": "American civil rights activist, Martin Luther King Jr.: American Baptist minister and activist who became the most visible"
+      }
+    },
+    {
+      "entity": "iPhone",
+      "reference": "Line of smartphones designed by Apple",
+      "scores_by_layer": {
+        "0": 0.28571428571428575,
+        "1": 0.28571428571428575,
+        "2": 0.28571428571428575,
+        "3": 0.28571428571428575,
+        "4": 0.2608695652173913,
+        "5": 0.2608695652173913,
+        "6": 0.2727272727272727,
+        "7": 0.2727272727272727,
+        "8": 0.2727272727272727,
+        "9": 0.2727272727272727
+      },
+      "generations_by_layer": {
+        "0": "Smartphone made by Apple, Inc., and more!\nThe following list of 1000 most common English",
+        "1": "Smartphone made by Apple, Inc., and more!\nThe following list of 1000 most common English",
+        "2": "Smartphone made by Apple, Inc., and more!\nThe following list of 1000 most common English",
+        "3": "Smartphone made by Apple, Inc., and more!\nThe following list of 1000 most common English",
+        "4": "Smartphone made by Apple, Inc., and more!\nThe following is a list of the most popular articles",
+        "5": "Smartphone made by Apple, Inc., and more!\nThe following is a list of the most popular articles",
+        "6": "Smartphone made by Apple, Inc., and more!\nWhat is the meaning/definition of the letters in",
+        "7": "Smartphone made by Apple, Inc., and more!\nWhat is the meaning/definition of the letters in",
+        "8": "Smartphone made by Apple, Inc., and more!\nWhat is the meaning/definition of the letters in",
+        "9": "Smartphone made by Apple, Inc., and more!\nWhat is the meaning/definition of the letters in"
+      }
+    },
+    {
+      "entity": "Leonardo DiCaprio",
+      "reference": "American actor and film producer",
+      "scores_by_layer": {
+        "0": 0.5263157894736842,
+        "1": 0.0,
+        "2": 0.47619047619047616,
+        "3": 0.5263157894736842,
+        "4": 0.5263157894736842,
+        "5": 0.5263157894736842,
+        "6": 0.47619047619047616,
+        "7": 0.33333333333333337,
+        "8": 0.33333333333333337,
+        "9": 0.33333333333333337
+      },
+      "generations_by_layer": {
+        "0": "American actor and film producer, Leonardo DiCaprio: American actor and film producer, Samsung: South",
+        "1": "Italian surname, 2016: Leap year that started on Friday of the Gregorian calendar,",
+        "2": "American actor and film producer, Samsung: South Korean multinational electronics company, Samsung: South Korean multinational electronics",
+        "3": "American actor and film producer, Samsung Galaxy S8: Android smartphone, Samsung Galaxy S8 Plus:",
+        "4": "American actor and film producer, Samsung Galaxy S8: Smartphone, Samsung Galaxy S8 Plus: Smartphone",
+        "5": "American actor and film producer, Samsung Galaxy S8: Smartphone, Samsung Galaxy S8 Plus: Smartphone",
+        "6": "American actor and film producer, Apple: American multinational technology company, Samsung: South Korean multinational electronics company",
+        "7": "American actor and environmentalist, and more!\nSyria: Country in the Middle East\nSyria",
+        "8": "American actor and environmentalist, and more!\nSyria: Country in the Middle East\nSyria",
+        "9": "American actor and environmentalist, and more!\nSyria: Country in the Middle East\nSyria"
+      }
+    },
+    {
+      "entity": "Beethoven",
+      "reference": "German composer and pianist",
+      "scores_by_layer": {
+        "0": 0.6153846153846153,
+        "1": 0.6153846153846153,
+        "2": 0.6153846153846153,
+        "3": 0.6153846153846153,
+        "4": 0.5333333333333333,
+        "5": 0.6153846153846153,
+        "6": 0.6153846153846153,
+        "7": 0.6153846153846153,
+        "8": 0.6153846153846153,
+        "9": 0.6153846153846153
+      },
+      "generations_by_layer": {
+        "0": "German composer and pianist, 2016: Year, 2017: Year, 201",
+        "1": "German composer and pianist, 2016: Year, 2017: Year, 201",
+        "2": "German composer and pianist, 2016: Year, 2017: Year, 201",
+        "3": "German composer and pianist, 2016: Year, 2017: Year, 201",
+        "4": "German composer and pianist, 2016: Year in the Gregorian calendar, 2017",
+        "5": "German composer and pianist, 2016: Year, 2017: Year, 201",
+        "6": "German composer and pianist, 2016: Year, 2017: Year, 201",
+        "7": "German composer and pianist, 2016: Year, 2017: Year, 201",
+        "8": "German composer and pianist, 2016: Year, 2017: Year, 201",
+        "9": "German composer and pianist, 2016: Year, 2017: Year, 201"
+      }
+    },
+    {
+      "entity": "Facebook",
+      "reference": "American online social media and networking service",
+      "scores_by_layer": {
+        "0": 0.6086956521739131,
+        "1": 0.6086956521739131,
+        "2": 0.6086956521739131,
+        "3": 0.6086956521739131,
+        "4": 0.6363636363636364,
+        "5": 0.6086956521739131,
+        "6": 0.6086956521739131,
+        "7": 0.6086956521739131,
+        "8": 0.56,
+        "9": 0.6086956521739131
+      },
+      "generations_by_layer": {
+        "0": "American online social media and social networking service, Google: American multinational technology company, Apple: American multinational",
+        "1": "American online social media and social networking service, Google: American multinational technology company, Apple: American multinational",
+        "2": "American online social media and social networking service, Google: American multinational technology company, Apple: American multinational",
+        "3": "American online social media and social networking service, Google: American multinational technology company, Apple: American multinational",
+        "4": "American online social media and social networking service, Twitter: American microblogging and social networking service,",
+        "5": "American online social media and social networking service, Google: American multinational technology company, Apple: American multinational",
+        "6": "American online social media and social networking service, Google: American multinational technology company, Apple: American multinational",
+        "7": "American online social media and social networking service, Google: American multinational technology company, Apple: American multinational",
+        "8": "American online social media and social networking service, Google: American multinational technology company specializing in Internet-related services",
+        "9": "American online social media and social networking service, Google: American multinational technology company, Apple: American multinational"
+      }
+    },
+    {
+      "entity": "Isaac Newton",
+      "reference": "English mathematician, physicist, and astronomer",
+      "scores_by_layer": {
+        "0": 0.37499999999999994,
+        "1": 0.37499999999999994,
+        "2": 0.37499999999999994,
+        "3": 0.37499999999999994,
+        "4": 0.3,
+        "5": 0.3,
+        "6": 0.3,
+        "7": 0.2727272727272727,
+        "8": 0.2727272727272727,
+        "9": 0.2727272727272727
+      },
+      "generations_by_layer": {
+        "0": "English physicist and mathematician, 2016: Year in the Gregorian calendar, 2017",
+        "1": "English physicist and mathematician, 2016: Year in the Gregorian calendar, 2017",
+        "2": "English physicist and mathematician, 2016: Year in the Gregorian calendar, 2017",
+        "3": "English physicist and mathematician, 2016: Year in the Gregorian calendar, 2017",
+        "4": "English physicist and mathematician, The Beatles: English rock band, The Rolling Stones: English rock band",
+        "5": "English physicist and mathematician, The Beatles: English rock band, The Rolling Stones: English rock band",
+        "6": "English physicist and mathematician, The Beatles: English rock band, The Rolling Stones: English rock band",
+        "7": "English physicist and mathematician, and more!\nThe following is a list of the most popular articles in",
+        "8": "English physicist and mathematician, and more!\nThe following is a list of the most popular articles in",
+        "9": "English physicist and mathematician, and more!\nThe following is a list of the most popular articles in"
+      }
+    },
+    {
+      "entity": "Niagara Falls",
+      "reference": "Group of three waterfalls at the border of Ontario and New York",
+      "scores_by_layer": {
+        "0": 0.23076923076923075,
+        "1": 0.23076923076923075,
+        "2": 0.23076923076923075,
+        "3": 0.4,
+        "4": 0.24000000000000002,
+        "5": 0.30769230769230765,
+        "6": 0.3448275862068966,
+        "7": 0.23076923076923075,
+        "8": 0.30769230769230765,
+        "9": 0.30769230769230765
+      },
+      "generations_by_layer": {
+        "0": "A sudden descent of a body of water, The 2010s: The decade of the",
+        "1": "Waterfall in the United States, and more!\nSyria: Country in the Middle East\nSy",
+        "2": "Waterfall in the United States, and more!\nSyria: Country in the Middle East\nSy",
+        "3": "Waterfalls in Ontario, Canada, and New York, United States, and Niagara Falls: Waterfalls",
+        "4": "Waterfalls in New York, USA, and more!\nSyria: Country in the Middle East",
+        "5": "Waterfalls on the Niagara River, New York, USA, and Ontario, Canada, and the Niagara",
+        "6": "Waterfalls on the Niagara River, between the Canadian province of Ontario and the U.S. state of",
+        "7": "Waterfalls on the Niagara River, and more!\nSyria: Country in the Middle East\nSy",
+        "8": "Waterfalls on the Niagara River, New York, United States, and Ontario, Canada, and the",
+        "9": "Waterfalls on the Niagara River, New York, United States, and Ontario, Canada, and the"
+      }
+    },
+    {
+      "entity": "Oprah Winfrey",
+      "reference": "American talk show host, television producer, and philanthropist",
+      "scores_by_layer": {
+        "0": 0.2,
+        "1": 0.4761904761904762,
+        "2": 0.7000000000000001,
+        "3": 0.4166666666666667,
+        "4": 0.7000000000000001,
+        "5": 0.7000000000000001,
+        "6": 0.7000000000000001,
+        "7": 0.36363636363636365,
+        "8": 0.36363636363636365,
+        "9": 0.36363636363636365
+      },
+      "generations_by_layer": {
+        "0": "American journalist, author, and television personality, 2016: Year in the Gregorian calendar,",
+        "1": "American media proprietor, talk show host, and businesswoman, 2016: Year in the Greg",
+        "2": "American media proprietor, talk show host, actress, producer, and philanthropist, and more!",
+        "3": "American media proprietor, talk show host, and actress, and more!\nThe Syrian Civil War is an",
+        "4": "American media proprietor, talk show host, actress, producer, and philanthropist, and more!",
+        "5": "American media proprietor, talk show host, actress, producer, and philanthropist, and more!",
+        "6": "American media proprietor, talk show host, actress, producer, and philanthropist, and more!",
+        "7": "American actress, producer, and philanthropist, and more!\nThe Syrian Civil War is an ongoing",
+        "8": "American actress, producer, and philanthropist, and more!\nThe Syrian Civil War is an ongoing",
+        "9": "American actress, producer, and philanthropist, and more!\nThe Syrian Civil War is an ongoing"
+      }
+    },
+    {
+      "entity": "SpaceX",
+      "reference": "American aerospace manufacturer and space transportation company",
+      "scores_by_layer": {
+        "0": 0.17391304347826086,
+        "1": 0.5833333333333334,
+        "2": 0.5833333333333334,
+        "3": 0.5833333333333334,
+        "4": 0.5833333333333334,
+        "5": 0.5833333333333334,
+        "6": 0.5833333333333334,
+        "7": 0.5833333333333334,
+        "8": 0.5833333333333334,
+        "9": 0.6086956521739131
+      },
+      "generations_by_layer": {
+        "0": "American cryptocurrency exchange, and more!\nSyria is a country in the Middle East. It is bordered",
+        "1": "American aerospace manufacturer and space transportation services company, SpaceX: American aerospace manufacturer and space transportation services company,",
+        "2": "American aerospace manufacturer and space transportation services company, Tesla: American electric vehicle and clean energy company, Apple",
+        "3": "American aerospace manufacturer and space transportation services company, Tesla: American electric vehicle and clean energy company, Apple",
+        "4": "American aerospace manufacturer and space transportation services company, Tesla: American electric vehicle and clean energy company, Apple",
+        "5": "American aerospace manufacturer and space transportation services company, Tesla: American electric vehicle and clean energy company, Apple",
+        "6": "American aerospace manufacturer and space transportation services company, Tesla: American electric vehicle and clean energy company, Apple",
+        "7": "American aerospace manufacturer and space transportation services company, Tesla, Inc.: American electric vehicle and clean energy company",
+        "8": "American aerospace manufacturer and space transportation services company, Tesla, Inc.: American electric vehicle and clean energy company",
+        "9": "American aerospace manufacturer and space transportation services company, NASA: American space agency, Elon Musk: South African"
+      }
+    },
+    {
+      "entity": "Cleopatra",
+      "reference": "Last active ruler of the Ptolemaic Kingdom of Egypt",
+      "scores_by_layer": {
+        "0": 0.0,
+        "1": 0.23529411764705882,
+        "2": 0.25,
+        "3": 0.23529411764705882,
+        "4": 0.25,
+        "5": 0.25,
+        "6": 0.23529411764705882,
+        "7": 0.23529411764705882,
+        "8": 0.23529411764705882,
+        "9": 0.23529411764705882
+      },
+      "generations_by_layer": {
+        "0": "Greek city, 2016: Year, 2017: Year, 2018: Year",
+        "1": "Queen of Egypt, 2016: Year, 2017: Year, 2018:",
+        "2": "Queen of Egypt, 1960s: Decade, 1970s: Decade,",
+        "3": "Queen of Egypt, 2016: Year, 2017: Year, 2018:",
+        "4": "Queen of Egypt, 1960s: Decade, 1970s: Decade,",
+        "5": "Queen of Egypt, 1960s: Decade, 1970s: Decade,",
+        "6": "Queen of Egypt, 1963: Year, 2016: Year, 2017:",
+        "7": "Queen of Egypt, 1962: Year, 2016: Year, 2017:",
+        "8": "Queen of Egypt, 1963: Year, 2016: Year, 2017:",
+        "9": "Queen of Egypt, 2016: Year, 2017: Year, 2018:"
+      }
+    },
+    {
+      "entity": "The Louvre",
+      "reference": "World's largest art museum in Paris",
+      "scores_by_layer": {
+        "0": 0.10526315789473685,
+        "1": 0.38095238095238093,
+        "2": 0.38095238095238093,
+        "3": 0.38095238095238093,
+        "4": 0.38095238095238093,
+        "5": 0.3333333333333333,
+        "6": 0.3333333333333333,
+        "7": 0.3333333333333333,
+        "8": 0.38095238095238093,
+        "9": 0.38095238095238093
+      },
+      "generations_by_layer": {
+        "0": "French museum, The Louvre: French museum, The Louvre: French museum, The Louvre",
+        "1": "Art museum in Paris, France, and more!\nSyria: Country in the Middle East\nSy",
+        "2": "Art museum in Paris, France, and more!\nSyria: Country in the Middle East\nSy",
+        "3": "Art museum in Paris, France, and more!\nSyria: Country in the Middle East\nSy",
+        "4": "Art museum in Paris, France, and more!\nSyria: Country in the Middle East\nSy",
+        "5": "Art museum in Paris, France, and more!\nThe Syrian Civil War is an ongoing armed conflict in",
+        "6": "Art museum in Paris, France, and more!\nThe Syrian Civil War is an ongoing armed conflict in",
+        "7": "Art museum in Paris, France, and more!\nThe Syrian Civil War is an ongoing armed conflict in",
+        "8": "Art museum in Paris, France, and more!\nSyria: Country in the Middle East\nSy",
+        "9": "Art museum in Paris, France, and more!\nSyria: Country in the Middle East\nSy"
+      }
+    },
+    {
+      "entity": "Charles Darwin",
+      "reference": "English naturalist who proposed the theory of evolution",
+      "scores_by_layer": {
+        "0": 0.3157894736842105,
+        "1": 0.3157894736842105,
+        "2": 0.3157894736842105,
+        "3": 0.3157894736842105,
+        "4": 0.3478260869565218,
+        "5": 0.2857142857142857,
+        "6": 0.26086956521739135,
+        "7": 0.3478260869565218,
+        "8": 0.26086956521739135,
+        "9": 0.3478260869565218
+      },
+      "generations_by_layer": {
+        "0": "English naturalist, geologist and biologist, 2016: Year in the Gregorian calendar,",
+        "1": "English naturalist, geologist and biologist, 2016: Year in the Gregorian calendar,",
+        "2": "English naturalist, geologist and biologist, 2016: Year in the Gregorian calendar,",
+        "3": "English naturalist, geologist and biologist, 2016: Year in the Gregorian calendar,",
+        "4": "English naturalist, geologist and biologist, and more!\nThe following is a list of the most",
+        "5": "English naturalist, geologist and biologist, The Beatles: English rock band, The Rolling Stones:",
+        "6": "English naturalist, geologist and biologist, and more!\nThe following article is from The Great Soviet",
+        "7": "English naturalist, geologist and biologist, and more!\nThe following is a list of the most",
+        "8": "English naturalist, geologist and biologist, and more!\nThe following article is from The Great Soviet",
+        "9": "English naturalist, geologist and biologist, and more!\nThe following article on the history of the"
+      }
+    },
+    {
+      "entity": "Microsoft",
+      "reference": "American multinational technology corporation",
+      "scores_by_layer": {
+        "0": 0.31578947368421056,
+        "1": 0.31578947368421056,
+        "2": 0.31578947368421056,
+        "3": 0.31578947368421056,
+        "4": 0.31578947368421056,
+        "5": 0.31578947368421056,
+        "6": 0.31578947368421056,
+        "7": 0.31578947368421056,
+        "8": 0.31578947368421056,
+        "9": 0.31578947368421056
+      },
+      "generations_by_layer": {
+        "0": "American multinational technology company, Apple: American multinational technology company, Google: American multinational technology company, Facebook",
+        "1": "American multinational technology company, Google: American multinational technology company, Apple: American multinational technology company, Facebook",
+        "2": "American multinational technology company, Google: American multinational technology company, Apple: American multinational technology company, Facebook",
+        "3": "American multinational technology company, Google: American multinational technology company, Apple: American multinational technology company, Facebook",
+        "4": "American multinational technology company, Apple: American multinational technology company, Google: American multinational technology company, Facebook",
+        "5": "American multinational technology company, Apple: American multinational technology company, Google: American multinational technology company, Facebook",
+        "6": "American multinational technology company, Apple: American multinational technology company, Google: American multinational technology company, Facebook",
+        "7": "American multinational technology company, Apple: American multinational technology company, Google: American multinational technology company, Facebook",
+        "8": "American multinational technology company, Apple: American multinational technology company, Google: American multinational technology company, Facebook",
+        "9": "American multinational technology company, Apple: American multinational technology company, Google: American multinational technology company, Facebook"
+      }
+    },
+    {
+      "entity": "Abraham Lincoln",
+      "reference": "16th president of the United States",
+      "scores_by_layer": {
+        "0": 0.6666666666666666,
+        "1": 0.6666666666666666,
+        "2": 0.6666666666666666,
+        "3": 0.6666666666666666,
+        "4": 0.6666666666666666,
+        "5": 0.6666666666666666,
+        "6": 0.6666666666666666,
+        "7": 0.6666666666666666,
+        "8": 0.6666666666666666,
+        "9": 0.6666666666666666
+      },
+      "generations_by_layer": {
+        "0": "16th President of the United States, 1861–1865, and the first president",
+        "1": "16th President of the United States, 1861–1865, and the first president",
+        "2": "16th President of the United States, 1861-1865, and the first president",
+        "3": "16th President of the United States, 1861–1865, and the first president",
+        "4": "16th President of the United States, 2016: Year in the Gregorian calendar,",
+        "5": "16th President of the United States, 2016: Year in the Gregorian calendar,",
+        "6": "16th President of the United States, 1861-1865, and one of the",
+        "7": "16th President of the United States, 1861-1865, and one of the",
+        "8": "16th President of the United States, 1861-1865, and the first president",
+        "9": "16th President of the United States, 1861-1865, and the first president"
+      }
+    },
+    {
+      "entity": "Stonehenge",
+      "reference": "Prehistoric monument in Wiltshire, England",
+      "scores_by_layer": {
+        "0": 0.0,
+        "1": 0.5555555555555556,
+        "2": 0.5555555555555556,
+        "3": 0.5882352941176471,
+        "4": 0.5882352941176471,
+        "5": 0.5882352941176471,
+        "6": 0.5882352941176471,
+        "7": 0.625,
+        "8": 0.5555555555555556,
+        "9": 0.5555555555555556
+      },
+      "generations_by_layer": {
+        "0": "A type of stone circle, The Beatles: English rock band, The Rolling Stones: English rock band",
+        "1": "Prehistoric monument in Wiltshire, England, United Kingdom, United States: Country in North America",
+        "2": "Prehistoric monument in Wiltshire, England, United Kingdom, United States: Country in North America",
+        "3": "Prehistoric monument in Wiltshire, England, United Kingdom, The Beatles: English rock band,",
+        "4": "Prehistoric monument in Wiltshire, England, United Kingdom, The Beatles: English rock band,",
+        "5": "Prehistoric monument in Wiltshire, England, United Kingdom, The Beatles: English rock band,",
+        "6": "Prehistoric monument in Wiltshire, England, United Kingdom, The Beatles: English rock band,",
+        "7": "Prehistoric monument in Wiltshire, England, United Kingdom, and more!\nSyria: Country",
+        "8": "Prehistoric monument in Wiltshire, England, United Kingdom, United States: Country in North America",
+        "9": "Prehistoric monument in Wiltshire, England, United Kingdom, United States: Country in North America"
+      }
+    },
+    {
+      "entity": "Serena Williams",
+      "reference": "American professional tennis player",
+      "scores_by_layer": {
+        "0": 0.13333333333333333,
+        "1": 0.3636363636363636,
+        "2": 0.3636363636363636,
+        "3": 0.3636363636363636,
+        "4": 0.3636363636363636,
+        "5": 0.3636363636363636,
+        "6": 0.3636363636363636,
+        "7": 0.3636363636363636,
+        "8": 0.3636363636363636,
+        "9": 0.3636363636363636
+      },
+      "generations_by_layer": {
+        "0": "American multinational energy company, 2016: Year in the Gregorian calendar, 2017:",
+        "1": "American professional tennis player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between",
+        "2": "American professional tennis player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between",
+        "3": "American professional tennis player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between",
+        "4": "American professional tennis player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between",
+        "5": "American professional tennis player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between",
+        "6": "American professional tennis player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between",
+        "7": "American professional tennis player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between",
+        "8": "American professional tennis player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between",
+        "9": "American professional tennis player, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between"
+      }
+    },
+    {
+      "entity": "Coca-Cola",
+      "reference": "American carbonated soft drink",
+      "scores_by_layer": {
+        "0": 0.0909090909090909,
+        "1": 0.0909090909090909,
+        "2": 0.1,
+        "3": 0.09523809523809523,
+        "4": 0.09523809523809523,
+        "5": 0.09523809523809523,
+        "6": 0.10526315789473685,
+        "7": 0.09523809523809523,
+        "8": 0.09523809523809523,
+        "9": 0.1
+      },
+      "generations_by_layer": {
+        "0": "American multinational beverage company, and more!\nThe following is a list of the most popular articles in the",
+        "1": "American multinational beverage company, and more!\nThe following is a list of the most popular articles in the",
+        "2": "American multinational beverage company, and more!\nThe following list of 100+ most popular and most searched",
+        "3": "American multinational beverage company, and more! Find descriptive alternatives for middle east. The Middle East is a",
+        "4": "American multinational beverage company, and more! Find descriptive alternatives for middle east. The Middle East is a",
+        "5": "American multinational beverage company, and more! Find descriptive alternatives for middle east. The Middle East is a",
+        "6": "American multinational beverage company, and more! Find out more.\nSyria: Country in the Middle East",
+        "7": "American multinational beverage company, and more! Find descriptive alternatives for middle east. The Middle East is a",
+        "8": "American multinational beverage company, and more! Find descriptive alternatives for middle east. The Middle East is a",
+        "9": "American multinational beverage company, and more!\nThe following list of 100+ words is a great way"
+      }
+    },
+    {
+      "entity": "Pablo Picasso",
+      "reference": "Spanish painter, sculptor, and co-founder of Cubism",
+      "scores_by_layer": {
+        "0": 0.4444444444444445,
+        "1": 0.4,
+        "2": 0.4210526315789474,
+        "3": 0.4210526315789474,
+        "4": 0.4210526315789474,
+        "5": 0.4210526315789474,
+        "6": 0.4210526315789474,
+        "7": 0.4210526315789474,
+        "8": 0.4210526315789474,
+        "9": 0.4210526315789474
+      },
+      "generations_by_layer": {
+        "0": "Spanish painter, sculptor, printmaker, ceramicist and stage designer, 2016: Year",
+        "1": "Spanish painter, sculptor, printmaker, ceramicist and stage designer, The Beatles: English rock",
+        "2": "Spanish painter, sculptor, printmaker, ceramicist, and stage designer, and more!\nThe",
+        "3": "Spanish painter, sculptor, printmaker, ceramicist, and stage designer, and more!\nThe",
+        "4": "Spanish painter, sculptor, printmaker, ceramicist, and theatre designer, and more!\nThe",
+        "5": "Spanish painter, sculptor, printmaker, ceramicist, and stage designer, and more!\nThe",
+        "6": "Spanish painter, sculptor, printmaker, ceramicist, and stage designer, and more!\nThe",
+        "7": "Spanish painter, sculptor, printmaker, ceramicist, and stage designer, and more!\nThe",
+        "8": "Spanish painter, sculptor, printmaker, ceramicist, and stage designer, and more!\nThe",
+        "9": "Spanish painter, sculptor, printmaker, ceramicist, and stage designer, and more!\nThe"
+      }
+    },
+    {
+      "entity": "The Grand Canyon",
+      "reference": "Steep-sided canyon carved by the Colorado River",
+      "scores_by_layer": {
+        "0": 0.2962962962962963,
+        "1": 0.0,
+        "2": 0.09090909090909091,
+        "3": 0.09090909090909091,
+        "4": 0.09090909090909091,
+        "5": 0.09090909090909091,
+        "6": 0.07999999999999999,
+        "7": 0.07999999999999999,
+        "8": 0.07999999999999999,
+        "9": 0.07999999999999999
+      },
+      "generations_by_layer": {
+        "0": "A steep-sided valley with nearly vertical walls and a flat bottom, formed by a river or stream over",
+        "1": "Natural wonder in Arizona, USA, 2016: Year, 2017: Year,",
+        "2": "Natural wonder in Arizona, USA, and more...\nSyria: Country in the Middle East\nSy",
+        "3": "Natural wonder in Arizona, USA, and more...\nSyria: Country in the Middle East\nSy",
+        "4": "Natural wonder in Arizona, USA, and more...\nSyria: Country in the Middle East\nSy",
+        "5": "Natural wonder in Arizona, USA, and more...\nSyria: Country in the Middle East\nSy",
+        "6": "Natural wonder in Arizona, USA, and more!\nThe Syrian Civil War is an ongoing armed conflict in",
+        "7": "Natural wonder in Arizona, USA, and more!\nThe Syrian Civil War is an ongoing armed conflict in",
+        "8": "Natural wonder in Arizona, USA, and more!\nThe Syrian Civil War is an ongoing armed conflict in",
+        "9": "Natural wonder in Arizona, USA, and more!\nThe Syrian Civil War is an ongoing armed conflict in"
+      }
+    },
+    {
+      "entity": "Tesla",
+      "reference": "American electric vehicle and clean energy company",
+      "scores_by_layer": {
+        "0": 0.6086956521739131,
+        "1": 0.56,
+        "2": 0.56,
+        "3": 0.56,
+        "4": 0.56,
+        "5": 0.56,
+        "6": 0.56,
+        "7": 0.56,
+        "8": 0.56,
+        "9": 0.24
+      },
+      "generations_by_layer": {
+        "0": "American electric vehicle and clean energy company, Apple: American multinational technology company, Amazon: American multinational technology",
+        "1": "American electric vehicle and clean energy company, and more!\nThe Syrian Civil War is a civil war in",
+        "2": "American electric vehicle and clean energy company, and more!\nThe Syrian Civil War is a civil war in",
+        "3": "American electric vehicle and clean energy company, and more!\nThe Syrian Civil War is a civil war in",
+        "4": "American electric vehicle and clean energy company, and more!\nThe Syrian Civil War is a civil war in",
+        "5": "American electric vehicle and clean energy company, and more!\nThe Syrian Civil War is a civil war in",
+        "6": "American electric vehicle and clean energy company, and more!\nThe Syrian Civil War is an ongoing armed conflict",
+        "7": "American electric vehicle and clean energy company, and more!\nThe Syrian Civil War is an ongoing armed conflict",
+        "8": "American electric vehicle and clean energy company, and more!\nThe Syrian Civil War is an ongoing armed conflict",
+        "9": "American electric car manufacturer, and more!\nThe Syrian Civil War is an ongoing armed conflict in Syria between"
+      }
+    },
+    {
+      "entity": "Venus de Milo",
+      "reference": "Ancient Greek marble sculpture",
+      "scores_by_layer": {
+        "0": 0.0,
+        "1": 0.10526315789473685,
+        "2": 0.10526315789473685,
+        "3": 0.10526315789473685,
+        "4": 0.2105263157894737,
+        "5": 0.2105263157894737,
+        "6": 0.2105263157894737,
+        "7": 0.2105263157894737,
+        "8": 0.11111111111111112,
+        "9": 0.1
+      },
+      "generations_by_layer": {
+        "0": "Brand of chocolate bar, 2016: Year, 2017: Year, 2018",
+        "1": "Greek statue, The Beatles: English rock band, The Rolling Stones: English rock band, The Who",
+        "2": "Greek statue, The Beatles: English rock band, The Rolling Stones: English rock band, The Who",
+        "3": "Greek statue, The Beatles: English rock band, The Rolling Stones: English rock band, The Who",
+        "4": "Ancient Greek statue, The Beatles: English rock band, The Rolling Stones: English rock band, The",
+        "5": "Ancient Greek statue, The Beatles: English rock band, The Rolling Stones: English rock band, The",
+        "6": "Ancient Greek statue, The Beatles: English rock band, The Rolling Stones: English rock band, The",
+        "7": "Ancient Greek statue, The Beatles: English rock band, The Rolling Stones: English rock band, The",
+        "8": "Greek statue of Aphrodite, The Beatles: English rock band, The Rolling Stones: English rock",
+        "9": "Greek statue of a woman, The Beatles: English rock band, The Rolling Stones: English rock band"
+      }
+    }
+  ]
+}

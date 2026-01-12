@@ -60,7 +60,7 @@ def build_hop1_prompt(hop1_text, placeholder=" x"):
     Build hop 1 prompt for extracting bridge entity representation.
 
     Uses identity-style prompt to decode bridge entity from a descriptive phrase.
-    Pattern: "the search engine company -> Google ; the iPhone maker -> Apple ; <hop1_text> ->"
+    Pattern: "descriptive phrase -> Entity Name ; ... ; <hop1_text> ->"
 
     This encourages the model to "name" the bridge entity implied by hop1_text.
 
@@ -71,11 +71,26 @@ def build_hop1_prompt(hop1_text, placeholder=" x"):
     Returns:
         Prompt string for hop 1
     """
-    # Few-shot examples showing entity naming pattern
+    # Diverse few-shot examples showing entity naming pattern
+    # Covers: tech companies, people, places, organizations, products
     demos = [
-        "the search engine company -> Google",
-        "the iPhone maker -> Apple",
-        "the Windows creator -> Microsoft"
+        # Tech companies - varied phrasings
+        "the search engine giant founded by Larry Page -> Google",
+        "the company that makes the iPhone -> Apple",
+        "the creator of Windows and Office -> Microsoft",
+        "the e-commerce company founded by Jeff Bezos -> Amazon",
+        "the social media platform founded by Mark Zuckerberg -> Facebook",
+        "the electric car company led by Elon Musk -> Tesla",
+        # People
+        "the physicist who developed the theory of relativity -> Einstein",
+        "the founder of Microsoft -> Bill Gates",
+        "the current CEO of Apple -> Tim Cook",
+        # Places
+        "the capital of France -> Paris",
+        "the largest city in Japan -> Tokyo",
+        # Products/Brands
+        "the programming language created by Guido van Rossum -> Python",
+        "the AI assistant made by OpenAI -> ChatGPT",
     ]
 
     prompt = " ; ".join(demos) + f" ; {hop1_text} ->"
@@ -120,16 +135,30 @@ def build_vanilla_multihop_prompt(combined_question):
     return f"{combined_question} is"
 
 
-def build_cot_multihop_prompt(combined_question):
+def build_cot_multihop_prompt(combined_question, use_instruct_format=False):
     """
     Build chain-of-thought prompt for 2-hop question.
 
-    Adds "Let's think step by step." as a prefix to encourage reasoning.
+    Adds "Let's think step by step." to encourage reasoning.
+    When use_instruct_format=True, formats for Llama 3 Instruct chat template.
 
     Args:
         combined_question: Full 2-hop question
+        use_instruct_format: Whether to use Llama 3 Instruct chat format
 
     Returns:
         Prompt with CoT trigger
     """
-    return f"Let's think step by step. {combined_question} is"
+    if use_instruct_format:
+        # Llama 3 Instruct chat template format
+        system_msg = "You are a helpful assistant. Answer questions by thinking step by step."
+        user_msg = f"Question: {combined_question}\n\nLet's think step by step to find the answer."
+        
+        prompt = (
+            f"<|begin_of_text|><|start_header_id|>system<|end_header_id|>\n\n"
+            f"{system_msg}<|eot_id|><|start_header_id|>user<|end_header_id|>\n\n"
+            f"{user_msg}<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
+        )
+        return prompt
+    else:
+        return f"Let's think step by step. {combined_question} is"

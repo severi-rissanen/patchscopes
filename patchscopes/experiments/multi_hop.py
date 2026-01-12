@@ -46,57 +46,32 @@ def check_hop_solvability(
     return is_solvable, generated_text
 
 
-def run_multihop_experiment(
+def run_vanilla_and_patchscope(
     model,
     examples,
     layers,
     placeholder=" x",
     max_new_tokens=20,
     temperature=0.0,
-    filter_solvable=True,
+    filter_solvable=False,
     check_n_tokens=20,
 ):
     """
-    Run multi-hop reasoning experiment comparing three methods.
-
-    For each example:
-    1. Optionally filter: check if both hops are individually solvable
-    2. Vanilla: Generate from combined question directly
-    3. CoT: Generate with "Let's think step by step" prefix
-    4. Patchscope: Extract hop1 bridge entity, patch into hop2
+    Run vanilla and patchscope experiments (Phase 1).
 
     Args:
-        model: HookedTransformer model
+        model: HookedTransformer model (base model)
         examples: List of multi-hop example dicts
         layers: List of layer indices to test for patchscope
         placeholder: Single-token placeholder
-        max_new_tokens: Tokens to generate for each method
+        max_new_tokens: Tokens to generate
         temperature: Generation temperature (0 = greedy)
         filter_solvable: Whether to pre-filter examples
         check_n_tokens: Tokens to generate for solvability checks
 
     Returns:
-        results: Dict with structure:
-            {
-                'num_examples': int,
-                'num_filtered': int,
-                'vanilla': {
-                    'accuracy': float,
-                    'correct_count': int,
-                    'per_example': [...]
-                },
-                'cot': {
-                    'accuracy': float,
-                    'correct_count': int,
-                    'per_example': [...]
-                },
-                'patchscope': {
-                    'accuracy_by_layer': {layer: float, ...},
-                    'best_layer': int,
-                    'best_accuracy': float,
-                    'per_example': [...]
-                }
-            }
+        results: Partial results dict (without CoT)
+        filtered_examples: Examples used (for CoT phase)
     """
     # Verify placeholder
     if not verify_single_token(model, placeholder):
@@ -156,10 +131,10 @@ def run_multihop_experiment(
         }
     }
 
-    print(f"\nRunning experiment on {len(filtered_examples)} examples...")
+    print(f"\nPhase 1: Running vanilla and patchscope on {len(filtered_examples)} examples...")
 
     # Process each example
-    for example_idx, example in enumerate(tqdm(filtered_examples, desc="Processing")):
+    for example_idx, example in enumerate(tqdm(filtered_examples, desc="Vanilla+Patchscope")):
         example_results = {
             'id': example.get('id', f'example_{example_idx}'),
             'question': example['combined_question'],
@@ -185,29 +160,12 @@ def run_multihop_experiment(
         if vanilla_correct:
             results['vanilla']['correct_count'] += 1
 
-        # Method 2: CoT
-        cot_prompt = build_cot_multihop_prompt(example['combined_question'])
-        cot_tokens, _ = vanilla_generate(
-            model, cot_prompt,
-            max_new_tokens=max_new_tokens,
-            temperature=temperature
-        )
-        cot_correct = answer_appears_in_generation(cot_tokens, example['hop2_answer'])
-
-        example_results['cot'] = {
-            'generated': "".join(cot_tokens),
-            'correct': cot_correct
-        }
-        if cot_correct:
-            results['cot']['correct_count'] += 1
-
-        # Method 3: Patchscope (sweep layers)
-        # Build hop1 and hop2 prompts
+        # Method 2: Patchscope (sweep layers)
         hop1_prompt = build_hop1_prompt(example['hop1_prompt'], placeholder)
         hop2_prompt = build_hop2_prompt(example['hop2_prompt_prefix'], placeholder)
 
-        # Find positions
-        hop1_position = find_substring_token_position(model, hop1_prompt, "->")
+        # Find positions - extract from the last token of the hop1 query phrase
+        hop1_position = find_substring_token_position(model, hop1_prompt, example['hop1_prompt'], return_last=True)
         if hop1_position is None:
             hop1_position = len(model.to_tokens(hop1_prompt, prepend_bos=True)[0]) - 1
 
@@ -257,9 +215,8 @@ def run_multihop_experiment(
         results['vanilla']['per_example'].append(example_results)
         results['cot']['per_example'].append(example_results)
 
-    # Compute accuracies
+    # Compute vanilla accuracy
     results['vanilla']['accuracy'] = results['vanilla']['correct_count'] / len(filtered_examples)
-    results['cot']['accuracy'] = results['cot']['correct_count'] / len(filtered_examples)
 
     # Compute patchscope accuracy by layer
     for layer in layers:
@@ -275,5 +232,135 @@ def run_multihop_experiment(
                         key=results['patchscope']['accuracy_by_layer'].get)
         results['patchscope']['best_layer'] = best_layer
         results['patchscope']['best_accuracy'] = results['patchscope']['accuracy_by_layer'][best_layer]
+
+    return results, filtered_examples
+
+
+def run_cot_phase(
+    cot_model,
+    results,
+    filtered_examples,
+    max_new_tokens=20,
+    temperature=0.0,
+    use_instruct_format=False,
+):
+    """
+    Run CoT experiment (Phase 2).
+
+    Args:
+        cot_model: HookedTransformer model (instruct model for CoT)
+        results: Results dict from Phase 1
+        filtered_examples: Examples used in Phase 1
+        max_new_tokens: Tokens to generate
+        temperature: Generation temperature (0 = greedy)
+        use_instruct_format: Whether to use instruct format for CoT prompts
+
+    Returns:
+        results: Updated results dict with CoT results
+    """
+    print(f"\nPhase 2: Running CoT on {len(filtered_examples)} examples...")
+
+    # Process each example for CoT
+    for example_idx, example in enumerate(tqdm(filtered_examples, desc="CoT")):
+        cot_prompt = build_cot_multihop_prompt(example['combined_question'], use_instruct_format=use_instruct_format)
+        cot_tokens, _ = vanilla_generate(
+            cot_model, cot_prompt,
+            max_new_tokens=max_new_tokens,
+            temperature=temperature
+        )
+        cot_correct = answer_appears_in_generation(cot_tokens, example['hop2_answer'])
+
+        # Update the example results
+        results['cot']['per_example'][example_idx]['cot'] = {
+            'generated': "".join(cot_tokens),
+            'correct': cot_correct
+        }
+        if cot_correct:
+            results['cot']['correct_count'] += 1
+
+    # Compute CoT accuracy
+    results['cot']['accuracy'] = results['cot']['correct_count'] / len(filtered_examples)
+
+    return results
+
+
+def run_multihop_experiment(
+    model,
+    examples,
+    layers,
+    placeholder=" x",
+    max_new_tokens=20,
+    temperature=0.0,
+    filter_solvable=False,
+    check_n_tokens=20,
+    cot_model=None,
+    use_instruct_format=False,
+):
+    """
+    Run multi-hop reasoning experiment comparing three methods.
+    
+    Note: If cot_model is the same as model, runs everything in one pass.
+    Otherwise, caller should use run_vanilla_and_patchscope + run_cot_phase separately
+    to manage memory.
+
+    For each example:
+    1. Optionally filter: check if both hops are individually solvable
+    2. Vanilla: Generate from combined question directly
+    3. CoT: Generate with "Let's think step by step" prefix
+    4. Patchscope: Extract hop1 bridge entity, patch into hop2
+
+    Args:
+        model: HookedTransformer model (base model for vanilla and patchscope)
+        examples: List of multi-hop example dicts
+        layers: List of layer indices to test for patchscope
+        placeholder: Single-token placeholder
+        max_new_tokens: Tokens to generate for each method
+        temperature: Generation temperature (0 = greedy)
+        filter_solvable: Whether to pre-filter examples
+        check_n_tokens: Tokens to generate for solvability checks
+        cot_model: Optional separate model for CoT (if None, uses model)
+        use_instruct_format: Whether to use instruct format for CoT prompts
+
+    Returns:
+        results: Dict with structure:
+            {
+                'num_examples': int,
+                'num_filtered': int,
+                'vanilla': {
+                    'accuracy': float,
+                    'correct_count': int,
+                    'per_example': [...]
+                },
+                'cot': {
+                    'accuracy': float,
+                    'correct_count': int,
+                    'per_example': [...]
+                },
+                'patchscope': {
+                    'accuracy_by_layer': {layer: float, ...},
+                    'best_layer': int,
+                    'best_accuracy': float,
+                    'per_example': [...]
+                }
+            }
+    """
+    # Run phase 1: vanilla + patchscope
+    results, filtered_examples = run_vanilla_and_patchscope(
+        model, examples, layers,
+        placeholder=placeholder,
+        max_new_tokens=max_new_tokens,
+        temperature=temperature,
+        filter_solvable=filter_solvable,
+        check_n_tokens=check_n_tokens
+    )
+
+    # Run phase 2: CoT
+    cot_model_to_use = cot_model if cot_model is not None else model
+    results = run_cot_phase(
+        cot_model_to_use, results, filtered_examples,
+        max_new_tokens=max_new_tokens,
+        temperature=temperature,
+        use_instruct_format=use_instruct_format
+    )
 
     return results

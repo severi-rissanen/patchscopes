@@ -12,7 +12,7 @@
     "id": "example_002",
     "hop1_prompt": "the city where the Eiffel Tower is located",
     "hop1_answer": "Paris",
-    "hop2_prompt_prefix": "The country where",
+    "hop2_prompt_prefix": "The country of",
     "hop2_answer": "France",
     "combined_question": "The country where the city with the Eiffel Tower is located",
     "category": "location_location"
@@ -30,7 +30,7 @@
     "id": "example_004",
     "hop1_prompt": "the author of Harry Potter",
     "hop1_answer": "J.K. Rowling",
-    "hop2_prompt_prefix": "The country where",
+    "hop2_prompt_prefix": "The birth country of",
     "hop2_answer": "United Kingdom",
     "combined_question": "The country where the author of Harry Potter was born",
     "category": "person_location"
@@ -48,7 +48,7 @@
     "id": "example_006",
     "hop1_prompt": "the university where Albert Einstein taught",
     "hop1_answer": "Princeton",
-    "hop2_prompt_prefix": "The state where",
+    "hop2_prompt_prefix": "The state of",
     "hop2_answer": "New Jersey",
     "combined_question": "The state where the university Albert Einstein taught is located",
     "category": "institution_location"
@@ -75,7 +75,7 @@
     "id": "example_009",
     "hop1_prompt": "the director of Titanic",
     "hop1_answer": "James Cameron",
-    "hop2_prompt_prefix": "The country where",
+    "hop2_prompt_prefix": "The birth country of",
     "hop2_answer": "Canada",
     "combined_question": "The country where the director of Titanic was born",
     "category": "person_location"
@@ -84,7 +84,7 @@
     "id": "example_010",
     "hop1_prompt": "the company that makes the Playstation",
     "hop1_answer": "Sony",
-    "hop2_prompt_prefix": "The country where",
+    "hop2_prompt_prefix": "The home country of",
     "hop2_answer": "Japan",
     "combined_question": "The country where the company that makes the Playstation is headquartered",
     "category": "company_location"
@@ -93,7 +93,7 @@
     "id": "example_011",
     "hop1_prompt": "the painter of the Mona Lisa",
     "hop1_answer": "Leonardo da Vinci",
-    "hop2_prompt_prefix": "The country where",
+    "hop2_prompt_prefix": "The birth country of",
     "hop2_answer": "Italy",
     "combined_question": "The country where the painter of the Mona Lisa was born",
     "category": "person_location"
@@ -111,7 +111,7 @@
     "id": "example_013",
     "hop1_prompt": "the city where the Colosseum is located",
     "hop1_answer": "Rome",
-    "hop2_prompt_prefix": "The country where",
+    "hop2_prompt_prefix": "The country of",
     "hop2_answer": "Italy",
     "combined_question": "The country where the city with the Colosseum is located",
     "category": "location_location"
@@ -129,7 +129,7 @@
     "id": "example_015",
     "hop1_prompt": "the author of 1984",
     "hop1_answer": "George Orwell",
-    "hop2_prompt_prefix": "The country where",
+    "hop2_prompt_prefix": "The birth country of",
     "hop2_answer": "United Kingdom",
     "combined_question": "The country where the author of 1984 was born",
     "category": "person_location"
@@ -138,7 +138,7 @@
     "id": "example_016",
     "hop1_prompt": "the company that makes Android",
     "hop1_answer": "Google",
-    "hop2_prompt_prefix": "The founders of",
+    "hop2_prompt_prefix": "A founder of",
     "hop2_answer": "Larry Page",
     "combined_question": "The founders of the company that makes Android",
     "category": "company_person"
@@ -147,7 +147,7 @@
     "id": "example_017",
     "hop1_prompt": "the university where Mark Zuckerberg studied",
     "hop1_answer": "Harvard",
-    "hop2_prompt_prefix": "The city where",
+    "hop2_prompt_prefix": "The city of",
     "hop2_answer": "Cambridge",
     "combined_question": "The city where the university Mark Zuckerberg studied is located",
     "category": "institution_location"
@@ -156,7 +156,7 @@
     "id": "example_018",
     "hop1_prompt": "the composer of the Moonlight Sonata",
     "hop1_answer": "Beethoven",
-    "hop2_prompt_prefix": "The country where",
+    "hop2_prompt_prefix": "The birth country of",
     "hop2_answer": "Germany",
     "combined_question": "The country where the composer of the Moonlight Sonata was born",
     "category": "person_location"
@@ -174,7 +174,7 @@
     "id": "example_020",
     "hop1_prompt": "the actor who played Iron Man",
     "hop1_answer": "Robert Downey Jr.",
-    "hop2_prompt_prefix": "The country where",
+    "hop2_prompt_prefix": "The birth country of",
     "hop2_answer": "United States",
     "combined_question": "The country where the actor who played Iron Man was born",
     "category": "person_location"
