@@ -42,3 +42,44 @@ def surprisal(pred_logits, true_logits):
     true_log_probs = torch.log_softmax(true_logits.to(torch.float32), dim=-1)
 
     return -true_log_probs[pred_token].item()
+
+
+def rouge_l(predicted_text, reference_text):
+    """
+    Compute ROUGE-L score between predicted and reference text.
+
+    ROUGE-L measures the longest common subsequence (LCS) between texts,
+    which captures sentence-level structure similarity.
+
+    Args:
+        predicted_text: Generated text string
+        reference_text: Ground truth reference text string
+
+    Returns:
+        ROUGE-L F1 score (float between 0 and 1)
+        Returns 0.0 for edge cases (empty strings, None values)
+    """
+    from rouge_score import rouge_scorer
+
+    # Handle edge cases
+    if not predicted_text or not reference_text:
+        return 0.0
+
+    if not isinstance(predicted_text, str) or not isinstance(reference_text, str):
+        return 0.0
+
+    # Strip whitespace
+    predicted_text = predicted_text.strip()
+    reference_text = reference_text.strip()
+
+    if not predicted_text or not reference_text:
+        return 0.0
+
+    # Initialize ROUGE scorer with ROUGE-L metric
+    scorer = rouge_scorer.RougeScorer(['rougeL'], use_stemmer=True)
+
+    # Compute scores
+    scores = scorer.score(reference_text, predicted_text)
+
+    # Return F1 score (harmonic mean of precision and recall)
+    return scores['rougeL'].fmeasure
