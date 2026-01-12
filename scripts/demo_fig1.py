@@ -7,6 +7,7 @@ This demonstrates the core patchscoping idea:
 2. Patch it into an identity-style target prompt
 3. Decode what the model thinks that token means by predicting next token(s)
 """
+import argparse
 import sys
 import os
 
@@ -17,34 +18,101 @@ import torch
 from patchscopes.model import load_model
 from patchscopes.prompts import build_identity_prompt
 from patchscopes.positions import find_substring_token_position, find_token_position, verify_single_token
-from patchscopes.patch import extract_representation, run_with_patch, get_top_tokens
+from patchscopes.patch import (
+    extract_representation,
+    generate_with_patch,
+    run_with_patch,
+    get_top_tokens,
+)
+
+
+def parse_layers(value):
+    """Parse comma-separated layer indices into a list of integers."""
+    try:
+        return [int(x.strip()) for x in value.split(",")]
+    except ValueError:
+        raise argparse.ArgumentTypeError(
+            f"Invalid layers format: '{value}'. Expected comma-separated integers (e.g., '0,5,10,15')"
+        )
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Patchscopes Demo - Reproducing Figure 1",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    parser.add_argument(
+        "--model", "-m",
+        type=str,
+        default="meta-llama/Meta-Llama-3-8B",
+        help="Model name or path",
+    )
+    parser.add_argument(
+        "--mode",
+        type=str,
+        choices=["generate", "top_k"],
+        default="generate",
+        help="Decoding mode: 'generate' for autoregressive, 'top_k' for top-k predictions",
+    )
+    parser.add_argument(
+        "--max-new-tokens",
+        type=int,
+        default=5,
+        help="Number of tokens to generate (for 'generate' mode)",
+    )
+    parser.add_argument(
+        "--top-k",
+        type=int,
+        default=5,
+        help="Number of top tokens to show (for 'top_k' mode)",
+    )
+    parser.add_argument(
+        "--source-text",
+        type=str,
+        default="Amazon 's former CEO attended Oscars",
+        help="Source text to extract representation from",
+    )
+    parser.add_argument(
+        "--target-word",
+        type=str,
+        default="CEO",
+        help="Target word/token to decode",
+    )
+    parser.add_argument(
+        "--layers",
+        type=parse_layers,
+        default="0,5,10,20,25,27,31",
+        help="Comma-separated layer indices to test (e.g., '0,5,10,15')",
+    )
+    return parser.parse_args()
 
 
 def main():
+    args = parse_args()
+
     print("=" * 80)
     print("Patchscopes Demo - Reproducing Figure 1")
     print("=" * 80)
     print()
 
     # Configuration
-    MODEL_NAME = "meta-llama/Meta-Llama-3-8B"  # or "meta-llama/Meta-Llama-3-8B-Instruct"
-    DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-    DTYPE = torch.float16 if DEVICE == "cuda" else torch.float32
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    dtype = torch.float16 if device == "cuda" else torch.float32
 
-    print(f"Loading model: {MODEL_NAME}")
-    print(f"Device: {DEVICE}")
+    print(f"Loading model: {args.model}")
+    print(f"Device: {device}")
     print()
 
     # Load model
-    model = load_model(MODEL_NAME, device=DEVICE, dtype=DTYPE)
+    model = load_model(args.model, device=device, dtype=dtype)
 
     print("Model loaded successfully!")
     print(f"Number of layers: {model.cfg.n_layers}")
     print()
 
-    # Example from Figure 1
-    source_text = "Amazon 's former CEO attended Oscars"
-    target_word = "CEO"  # The token we want to decode
+    # Source text and target word
+    source_text = args.source_text
+    target_word = args.target_word
 
     print(f"Source text: '{source_text}'")
     print(f"Target word to decode: '{target_word}'")
@@ -93,13 +161,16 @@ def main():
 
     # Run patchscope across multiple layers
     print("=" * 80)
-    print("Running Patchscope across layers...")
+    print(f"Running Patchscope across layers (mode: {args.mode})...")
     print("=" * 80)
     print()
 
-    # Test a few representative layers
-    layers_to_test = [0, 5, 10, 15, 20, 25, 31]  # Llama-3-8B has 32 layers (0-31)
-    layers_to_test = [l for l in layers_to_test if l < model.cfg.n_layers]
+    # Determine which layers to test
+    if args.layers is not None:
+        layers_to_test = [l for l in args.layers if l < model.cfg.n_layers]
+    else:
+        layers_to_test = [0, 5, 10, 15, 20, 25, 31]  # Llama-3-8B has 32 layers (0-31)
+        layers_to_test = [l for l in layers_to_test if l < model.cfg.n_layers]
 
     for layer in layers_to_test:
         print(f"Layer {layer}:")
@@ -113,26 +184,42 @@ def main():
             position=ceo_position
         )
 
-        # Step 2: Patch into target and get logits
-        logits = run_with_patch(
-            model,
-            target_prompt,
-            layer=layer,
-            target_position=placeholder_pos,
-            source_vec=source_vec
-        )
+        if args.mode == "generate":
+            # Step 2a: Patch at layer 0 and generate tokens autoregressively
+            generated_tokens, _ = generate_with_patch(
+                model,
+                target_prompt,
+                target_position=placeholder_pos,
+                source_vec=source_vec,
+                max_new_tokens=args.max_new_tokens,
+                temperature=0,  # greedy decoding
+            )
 
-        # Step 3: Decode - get top predictions after the placeholder
-        # We want predictions after "->", which is the position after placeholder
-        prediction_pos = placeholder_pos + 1  # Position of "->"
-        if prediction_pos >= logits.shape[1]:
-            prediction_pos = placeholder_pos
+            # Step 3a: Display the generated output
+            generated_text = "".join(generated_tokens)
+            print(f"Generated (decoding what '{target_word}' means): {generated_text}")
+            print(f"  Tokens: {generated_tokens}")
 
-        top_tokens = get_top_tokens(model, logits, prediction_pos, k=5)
+        else:  # top_k mode
+            # Step 2b: Patch at layer 0 and get logits
+            logits = run_with_patch(
+                model,
+                target_prompt,
+                target_position=placeholder_pos,
+                source_vec=source_vec
+            )
 
-        print(f"Top 5 predictions (decoding what '{target_word}' means):")
-        for i, (token, prob) in enumerate(top_tokens, 1):
-            print(f"  {i}. '{token}' (p={prob:.4f})")
+            # Step 3b: Decode - get top predictions after the placeholder
+            prediction_pos = placeholder_pos + 1  # Position after placeholder
+            if prediction_pos >= logits.shape[1]:
+                prediction_pos = placeholder_pos
+
+            top_tokens = get_top_tokens(model, logits, prediction_pos, k=args.top_k)
+
+            print(f"Top {args.top_k} predictions (decoding what '{target_word}' means):")
+            for i, (token, prob) in enumerate(top_tokens, 1):
+                print(f"  {i}. '{token}' (p={prob:.4f})")
+
         print()
 
     print("=" * 80)
@@ -141,7 +228,7 @@ def main():
     print()
     print("Expected behavior:")
     print("- Early layers: predictions may be incoherent or generic")
-    print("- Middle/late layers: predictions should relate to 'CEO' meaning")
+    print("- Middle/late layers: should relate to 'CEO' meaning")
     print("  (e.g., 'Jeff', 'Bezos', 'executive', 'chief', etc.)")
 
 

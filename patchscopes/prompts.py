@@ -25,7 +25,7 @@ def build_identity_prompt(placeholder=" x", num_demos=5):
     demos = [f"{tok} -> {tok}" for tok in demo_tokens]
 
     # Join with " ; " and add placeholder at the end
-    prompt = " ; ".join(demos) + f" ; {placeholder} ->"
+    prompt = " ; ".join(demos) + f" ; {placeholder}"
 
     return prompt
 

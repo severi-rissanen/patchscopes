@@ -59,23 +59,22 @@ def make_patch_hook(source_vec, target_position):
     return hook_fn
 
 
-def run_with_patch(model, target_text, layer, target_position, source_vec, hook_name=None):
+def run_with_patch(model, target_text, target_position, source_vec, hook_name=None):
     """
-    Run the model on target text with a patched representation.
+    Run the model on target text with a patched representation at layer 0.
 
     Args:
         model: HookedTransformer model
         target_text: Target prompt string
-        layer: Layer to patch into
         target_position: Position to patch into
         source_vec: Source representation to patch [d_model]
-        hook_name: Hook name (default: f"blocks.{layer}.hook_resid_post")
+        hook_name: Hook name (default: "blocks.0.hook_resid_pre")
 
     Returns:
         logits: Output logits [batch, pos, vocab_size]
     """
     if hook_name is None:
-        hook_name = f"blocks.{layer}.hook_resid_post"
+        hook_name = "blocks.0.hook_resid_pre"
 
     # Tokenize target
     tokens = model.to_tokens(target_text, prepend_bos=True)
@@ -119,3 +118,66 @@ def get_top_tokens(model, logits, position, k=10):
         results.append((token_str, prob.item()))
 
     return results
+
+
+def generate_with_patch(
+    model,
+    target_text,
+    target_position,
+    source_vec,
+    max_new_tokens=5,
+    hook_name=None,
+    temperature=1.0,
+):
+    """
+    Patch a representation at layer 0 and generate tokens autoregressively.
+
+    The patch is applied on every forward pass at layer 0 and the target position,
+    ensuring the patched representation influences all generated tokens.
+
+    Args:
+        model: HookedTransformer model
+        target_text: Target prompt string
+        target_position: Position to patch into
+        source_vec: Source representation to patch [d_model]
+        max_new_tokens: Number of tokens to generate
+        hook_name: Hook name (default: "blocks.0.hook_resid_pre")
+        temperature: Sampling temperature (0 = greedy argmax)
+
+    Returns:
+        generated_tokens: List of generated token strings
+        generated_ids: Tensor of generated token ids
+    """
+    if hook_name is None:
+        hook_name = "blocks.0.hook_resid_pre"
+
+    # Tokenize target
+    tokens = model.to_tokens(target_text, prepend_bos=True)
+
+    # Create the patch hook (reused for all forward passes)
+    hook_fn = make_patch_hook(source_vec, target_position)
+
+    generated_ids = []
+
+    # Generate tokens autoregressively, applying patch on each forward pass
+    for _ in range(max_new_tokens):
+        logits = model.run_with_hooks(
+            tokens,
+            fwd_hooks=[(hook_name, hook_fn)]
+        )
+
+        # Get next token prediction from last position
+        next_token_logits = logits[0, -1, :]
+        if temperature <= 0:
+            next_token_id = torch.argmax(next_token_logits).unsqueeze(0).unsqueeze(0)
+        else:
+            probs = torch.softmax(next_token_logits / temperature, dim=-1)
+            next_token_id = torch.multinomial(probs, num_samples=1).unsqueeze(0)
+
+        generated_ids.append(next_token_id.item())
+        tokens = torch.cat([tokens, next_token_id], dim=1)
+
+    # Decode generated tokens
+    generated_tokens = [model.to_string(tid) for tid in generated_ids]
+
+    return generated_tokens, torch.tensor(generated_ids)
