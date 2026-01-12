@@ -181,3 +181,45 @@ def generate_with_patch(
     generated_tokens = [model.to_string(tid) for tid in generated_ids]
 
     return generated_tokens, torch.tensor(generated_ids)
+
+
+def vanilla_generate(model, prompt, max_new_tokens=20, temperature=0.0):
+    """
+    Generate tokens without any patching (vanilla baseline).
+
+    This is used for vanilla and CoT baselines in multi-hop experiments.
+
+    Args:
+        model: HookedTransformer model
+        prompt: Input prompt string
+        max_new_tokens: Number of tokens to generate
+        temperature: Sampling temperature (0 = greedy argmax)
+
+    Returns:
+        generated_tokens: List of generated token strings
+        generated_ids: Tensor of generated token ids
+    """
+    # Tokenize
+    tokens = model.to_tokens(prompt, prepend_bos=True)
+    generated_ids = []
+
+    # Generate tokens autoregressively
+    for _ in range(max_new_tokens):
+        with torch.no_grad():
+            logits = model(tokens)
+
+        # Get next token prediction from last position
+        next_token_logits = logits[0, -1, :]
+        if temperature <= 0:
+            next_token_id = torch.argmax(next_token_logits).unsqueeze(0).unsqueeze(0)
+        else:
+            probs = torch.softmax(next_token_logits / temperature, dim=-1)
+            next_token_id = torch.multinomial(probs, num_samples=1).unsqueeze(0)
+
+        generated_ids.append(next_token_id.item())
+        tokens = torch.cat([tokens, next_token_id], dim=1)
+
+    # Decode generated tokens
+    generated_tokens = [model.to_string(tid) for tid in generated_ids]
+
+    return generated_tokens, torch.tensor(generated_ids)

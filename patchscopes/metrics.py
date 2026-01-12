@@ -83,3 +83,29 @@ def rouge_l(predicted_text, reference_text):
 
     # Return F1 score (harmonic mean of precision and recall)
     return scores['rougeL'].fmeasure
+
+
+def answer_appears_in_generation(generated_tokens, target_answer, case_insensitive=True):
+    """
+    Check if target answer appears in generated token sequence.
+
+    This is the success metric for multi-hop reasoning experiments.
+    The answer is considered "found" if it appears as a substring anywhere
+    in the generated text.
+
+    Args:
+        generated_tokens: List of generated token strings
+        target_answer: Target answer string to find
+        case_insensitive: Whether to do case-insensitive matching (default: True)
+
+    Returns:
+        True if answer appears, False otherwise
+    """
+    # Join all generated tokens into a single string
+    generated_text = "".join(generated_tokens)
+
+    # Perform substring matching
+    if case_insensitive:
+        return target_answer.lower() in generated_text.lower()
+    else:
+        return target_answer in generated_text

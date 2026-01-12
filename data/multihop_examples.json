@@ -1,0 +1,182 @@
+[
+  {
+    "id": "example_001",
+    "hop1_prompt": "the company that created Visual Basic",
+    "hop1_answer": "Microsoft",
+    "hop2_prompt_prefix": "The current CEO of",
+    "hop2_answer": "Satya Nadella",
+    "combined_question": "The current CEO of the company that created Visual Basic",
+    "category": "company_person"
+  },
+  {
+    "id": "example_002",
+    "hop1_prompt": "the city where the Eiffel Tower is located",
+    "hop1_answer": "Paris",
+    "hop2_prompt_prefix": "The country where",
+    "hop2_answer": "France",
+    "combined_question": "The country where the city with the Eiffel Tower is located",
+    "category": "location_location"
+  },
+  {
+    "id": "example_003",
+    "hop1_prompt": "the company that makes the iPhone",
+    "hop1_answer": "Apple",
+    "hop2_prompt_prefix": "The founder of",
+    "hop2_answer": "Steve Jobs",
+    "combined_question": "The founder of the company that makes the iPhone",
+    "category": "company_person"
+  },
+  {
+    "id": "example_004",
+    "hop1_prompt": "the author of Harry Potter",
+    "hop1_answer": "J.K. Rowling",
+    "hop2_prompt_prefix": "The country where",
+    "hop2_answer": "United Kingdom",
+    "combined_question": "The country where the author of Harry Potter was born",
+    "category": "person_location"
+  },
+  {
+    "id": "example_005",
+    "hop1_prompt": "the company that owns Instagram",
+    "hop1_answer": "Meta",
+    "hop2_prompt_prefix": "The CEO of",
+    "hop2_answer": "Mark Zuckerberg",
+    "combined_question": "The CEO of the company that owns Instagram",
+    "category": "company_person"
+  },
+  {
+    "id": "example_006",
+    "hop1_prompt": "the university where Albert Einstein taught",
+    "hop1_answer": "Princeton",
+    "hop2_prompt_prefix": "The state where",
+    "hop2_answer": "New Jersey",
+    "combined_question": "The state where the university Albert Einstein taught is located",
+    "category": "institution_location"
+  },
+  {
+    "id": "example_007",
+    "hop1_prompt": "the company that created Windows",
+    "hop1_answer": "Microsoft",
+    "hop2_prompt_prefix": "The founder of",
+    "hop2_answer": "Bill Gates",
+    "combined_question": "The founder of the company that created Windows",
+    "category": "company_person"
+  },
+  {
+    "id": "example_008",
+    "hop1_prompt": "the country where Toyota is from",
+    "hop1_answer": "Japan",
+    "hop2_prompt_prefix": "The capital of",
+    "hop2_answer": "Tokyo",
+    "combined_question": "The capital of the country where Toyota is from",
+    "category": "location_location"
+  },
+  {
+    "id": "example_009",
+    "hop1_prompt": "the director of Titanic",
+    "hop1_answer": "James Cameron",
+    "hop2_prompt_prefix": "The country where",
+    "hop2_answer": "Canada",
+    "combined_question": "The country where the director of Titanic was born",
+    "category": "person_location"
+  },
+  {
+    "id": "example_010",
+    "hop1_prompt": "the company that makes the Playstation",
+    "hop1_answer": "Sony",
+    "hop2_prompt_prefix": "The country where",
+    "hop2_answer": "Japan",
+    "combined_question": "The country where the company that makes the Playstation is headquartered",
+    "category": "company_location"
+  },
+  {
+    "id": "example_011",
+    "hop1_prompt": "the painter of the Mona Lisa",
+    "hop1_answer": "Leonardo da Vinci",
+    "hop2_prompt_prefix": "The country where",
+    "hop2_answer": "Italy",
+    "combined_question": "The country where the painter of the Mona Lisa was born",
+    "category": "person_location"
+  },
+  {
+    "id": "example_012",
+    "hop1_prompt": "the company that owns YouTube",
+    "hop1_answer": "Google",
+    "hop2_prompt_prefix": "The CEO of",
+    "hop2_answer": "Sundar Pichai",
+    "combined_question": "The CEO of the company that owns YouTube",
+    "category": "company_person"
+  },
+  {
+    "id": "example_013",
+    "hop1_prompt": "the city where the Colosseum is located",
+    "hop1_answer": "Rome",
+    "hop2_prompt_prefix": "The country where",
+    "hop2_answer": "Italy",
+    "combined_question": "The country where the city with the Colosseum is located",
+    "category": "location_location"
+  },
+  {
+    "id": "example_014",
+    "hop1_prompt": "the company that created the Tesla electric car",
+    "hop1_answer": "Tesla",
+    "hop2_prompt_prefix": "The CEO of",
+    "hop2_answer": "Elon Musk",
+    "combined_question": "The CEO of the company that created the Tesla electric car",
+    "category": "company_person"
+  },
+  {
+    "id": "example_015",
+    "hop1_prompt": "the author of 1984",
+    "hop1_answer": "George Orwell",
+    "hop2_prompt_prefix": "The country where",
+    "hop2_answer": "United Kingdom",
+    "combined_question": "The country where the author of 1984 was born",
+    "category": "person_location"
+  },
+  {
+    "id": "example_016",
+    "hop1_prompt": "the company that makes Android",
+    "hop1_answer": "Google",
+    "hop2_prompt_prefix": "The founders of",
+    "hop2_answer": "Larry Page",
+    "combined_question": "The founders of the company that makes Android",
+    "category": "company_person"
+  },
+  {
+    "id": "example_017",
+    "hop1_prompt": "the university where Mark Zuckerberg studied",
+    "hop1_answer": "Harvard",
+    "hop2_prompt_prefix": "The city where",
+    "hop2_answer": "Cambridge",
+    "combined_question": "The city where the university Mark Zuckerberg studied is located",
+    "category": "institution_location"
+  },
+  {
+    "id": "example_018",
+    "hop1_prompt": "the composer of the Moonlight Sonata",
+    "hop1_answer": "Beethoven",
+    "hop2_prompt_prefix": "The country where",
+    "hop2_answer": "Germany",
+    "combined_question": "The country where the composer of the Moonlight Sonata was born",
+    "category": "person_location"
+  },
+  {
+    "id": "example_019",
+    "hop1_prompt": "the company that created the search engine Bing",
+    "hop1_answer": "Microsoft",
+    "hop2_prompt_prefix": "The headquarters of",
+    "hop2_answer": "Redmond",
+    "combined_question": "The headquarters of the company that created the search engine Bing",
+    "category": "company_location"
+  },
+  {
+    "id": "example_020",
+    "hop1_prompt": "the actor who played Iron Man",
+    "hop1_answer": "Robert Downey Jr.",
+    "hop2_prompt_prefix": "The country where",
+    "hop2_answer": "United States",
+    "combined_question": "The country where the actor who played Iron Man was born",
+    "category": "person_location"
+  }
+]

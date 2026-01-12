@@ -53,3 +53,83 @@ def build_entity_description_prompt(entities_with_descriptions, placeholder=" x"
     prompt = ", ".join(demos) + f", {placeholder}:"
 
     return prompt
+
+
+def build_hop1_prompt(hop1_text, placeholder=" x"):
+    """
+    Build hop 1 prompt for extracting bridge entity representation.
+
+    Uses identity-style prompt to decode bridge entity from a descriptive phrase.
+    Pattern: "the search engine company -> Google ; the iPhone maker -> Apple ; <hop1_text> ->"
+
+    This encourages the model to "name" the bridge entity implied by hop1_text.
+
+    Args:
+        hop1_text: Descriptive phrase for hop 1 (e.g., "the company that created Visual Basic")
+        placeholder: Single-token placeholder (not used in this prompt, but kept for consistency)
+
+    Returns:
+        Prompt string for hop 1
+    """
+    # Few-shot examples showing entity naming pattern
+    demos = [
+        "the search engine company -> Google",
+        "the iPhone maker -> Apple",
+        "the Windows creator -> Microsoft"
+    ]
+
+    prompt = " ; ".join(demos) + f" ; {hop1_text} ->"
+
+    return prompt
+
+
+def build_hop2_prompt(hop2_prefix, placeholder=" x"):
+    """
+    Build hop 2 prompt with placeholder for bridge entity.
+
+    Pattern: "The current CEO of [placeholder] is"
+
+    The placeholder will be patched with the bridge entity representation extracted from hop 1.
+
+    Args:
+        hop2_prefix: Relation phrase for hop 2 (e.g., "The current CEO of")
+        placeholder: Single-token placeholder where bridge entity will be patched
+
+    Returns:
+        Prompt string for hop 2 with placeholder
+    """
+    # Construct prompt with placeholder standing in for bridge entity
+    # Add "is" at the end to encourage answer completion
+    prompt = f"{hop2_prefix} {placeholder} is"
+
+    return prompt
+
+
+def build_vanilla_multihop_prompt(combined_question):
+    """
+    Build vanilla prompt for direct 2-hop question answering.
+
+    This is the baseline that doesn't use any prompting tricks.
+
+    Args:
+        combined_question: Full 2-hop question (e.g., "The current CEO of the company that created Visual Basic")
+
+    Returns:
+        Simple prompt string
+    """
+    return f"{combined_question} is"
+
+
+def build_cot_multihop_prompt(combined_question):
+    """
+    Build chain-of-thought prompt for 2-hop question.
+
+    Adds "Let's think step by step." as a prefix to encourage reasoning.
+
+    Args:
+        combined_question: Full 2-hop question
+
+    Returns:
+        Prompt with CoT trigger
+    """
+    return f"Let's think step by step. {combined_question} is"

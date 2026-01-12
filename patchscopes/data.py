@@ -185,3 +185,70 @@ def validate_entities(entities):
         valid_count += 1
 
     return valid_count
+
+
+def load_multihop_examples(file_path):
+    """
+    Load multi-hop reasoning examples from JSON file.
+
+    Expected JSON format:
+        [
+            {
+                "id": "example_001",
+                "hop1_prompt": "the company that created Visual Basic",
+                "hop1_answer": "Microsoft",
+                "hop2_prompt_prefix": "The current CEO of",
+                "hop2_answer": "Satya Nadella",
+                "combined_question": "The current CEO of the company that created Visual Basic",
+                "category": "company_person"  # Optional
+            },
+            ...
+        ]
+
+    Args:
+        file_path: Path to JSON file
+
+    Returns:
+        List of dicts with multi-hop example data
+
+    Raises:
+        FileNotFoundError: If file doesn't exist
+        ValueError: If file format is invalid
+    """
+    import json
+    import os
+
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"Multi-hop examples file not found: {file_path}")
+
+    # Read JSON file
+    with open(file_path, 'r', encoding='utf-8') as f:
+        examples = json.load(f)
+
+    # Validate format
+    if not isinstance(examples, list):
+        raise ValueError("JSON must contain a list of example objects")
+
+    required_fields = [
+        'hop1_prompt', 'hop1_answer',
+        'hop2_prompt_prefix', 'hop2_answer',
+        'combined_question'
+    ]
+
+    for i, item in enumerate(examples):
+        if not isinstance(item, dict):
+            raise ValueError(f"Example {i} is not a dict")
+
+        # Check required fields
+        for field in required_fields:
+            if field not in item:
+                raise ValueError(f"Example {i} missing required field: '{field}'")
+            if not isinstance(item[field], str):
+                raise ValueError(f"Example {i} field '{field}' must be a string")
+            if not item[field].strip():
+                raise ValueError(f"Example {i} field '{field}' is empty")
+
+    if not examples:
+        raise ValueError("Multi-hop examples file is empty")
+
+    return examples
