@@ -2,7 +2,7 @@
 import random
 
 
-def load_wikitext2(split='test', num_samples=200):
+def load_wikitext2(split='test'):
     """
     Load WikiText-2 dataset.
 
@@ -21,10 +21,10 @@ def load_wikitext2(split='test', num_samples=200):
     texts = [text for text in dataset['text'] if text.strip()]
 
     # Take first num_samples
-    return texts[:num_samples]
+    return texts
 
 
-def sample_positions(model, texts, positions_per_text=1, min_length=10, max_length=100):
+def sample_positions(model, texts, positions_per_text=1, min_length=20, max_length=100):
     """
     Sample valid positions from texts for next-token prediction.
 
@@ -55,7 +55,7 @@ def sample_positions(model, texts, positions_per_text=1, min_length=10, max_leng
 
         # Sample random positions (not last position, as there's no next token)
         # Also avoid BOS position (0)
-        valid_positions = list(range(1, seq_len - 1))
+        valid_positions = list(range(5, seq_len - 1))
 
         if len(valid_positions) < positions_per_text:
             continue

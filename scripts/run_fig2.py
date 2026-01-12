@@ -38,7 +38,7 @@ def parse_args():
     parser.add_argument(
         '--layers',
         type=str,
-        default='0,4,8,12,16,20,24,28,31',
+        default='0,4,8,12,16,20,24,28,29',
         help='Comma-separated layer indices to test',
     )
     parser.add_argument(
@@ -137,11 +137,12 @@ def main():
 
     # Load data
     print("Loading WikiText-2 dataset...")
-    texts = load_wikitext2(split='test', num_samples=args.num_samples)
+    texts = load_wikitext2(split='test')
     print(f"Loaded {len(texts)} text samples")
 
     print("Sampling positions for evaluation...")
     samples = sample_positions(model, texts, positions_per_text=1)
+    samples = samples[:args.num_samples]
     print(f"Using {len(samples)} evaluation samples")
     print()
 

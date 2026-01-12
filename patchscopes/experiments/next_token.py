@@ -118,6 +118,16 @@ def run_next_token_experiment(
             logits_ps = logits_ps_full[0, placeholder_pos, :]  # [vocab_size]
             ps_p1_scores.append(precision_at_1(logits_ps, logits_true))
             ps_surp_scores.append(surprisal(logits_ps, logits_true))
+            if surprisal(logits_ps, logits_true) > 100:
+                print(f"Text: {text}")
+                print(f"Position: {position}")
+                print(f"Logits True: {logits_true}")
+                print(f"Logits PS: {logits_ps}")
+                print(f"Surprisal: {surprisal(logits_ps, logits_true)}")
+                print(f"Precision@1: {precision_at_1(logits_ps, logits_true)}")
+                print(f"Hidden State: {hidden_state}")
+                print(f"Identity Prompt: {identity_prompt}")
+                breakpoint()
 
         # Aggregate across samples (mean)
         results['logit_lens']['precision_at_1'].append(np.mean(ll_p1_scores))

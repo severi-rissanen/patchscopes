@@ -39,9 +39,6 @@ def surprisal(pred_logits, true_logits):
         Surprisal value (float)
     """
     pred_token = torch.argmax(pred_logits)
-    true_probs = torch.softmax(true_logits, dim=-1)
+    true_log_probs = torch.log_softmax(true_logits.to(torch.float32), dim=-1)
 
-    # Clamp probability to avoid log(0)
-    prob = torch.clamp(true_probs[pred_token], min=1e-10)
-
-    return -torch.log(prob).item()
+    return -true_log_probs[pred_token].item()
