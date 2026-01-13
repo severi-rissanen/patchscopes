@@ -2,7 +2,7 @@
 
 Minimal reproduction of the some of the main results in the [Patchscopes paper](https://arxiv.org/abs/2401.06102) using TransformerLens and Llama-3-8B.
 
-Patchscopes is a framework for inspecting hidden representations in language models by "patching" them into different computational contexts and observing the outputs.
+Patchscopes is a framework for inspecting hidden representations in LLMs by "patching" them into the input of another LLM forward pass. 
 
 ## Setup
 
